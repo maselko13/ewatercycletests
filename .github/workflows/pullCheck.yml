@@ -17,7 +17,7 @@ jobs:
     if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
     runs-on: self-hosted
     steps:
-        - name: spierdalaj
+        - name: checkout
           uses: actions/checkout@v2
         - name: name3
           run: echo "Hello"
