@@ -24,7 +24,9 @@ jobs:
               repository: maselko13/ewatercycletests
         - name: checkout 
           run: git checkout main
-        - name: name3
+        - name: test
           run: echo "Hello"
-        - name: name4
+        - name: run-submission-file-tests
+          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
+        - name: run-model-tests
           run: conda run -n ewatercycle --no-capture-output python main.py
