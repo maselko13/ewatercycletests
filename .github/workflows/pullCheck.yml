@@ -1,0 +1,25 @@
+name: pull-check
+run-name: pullCheck
+on:
+   workflow_dispatch:
+  #pull_request:
+   # types: [ labeled, opened ]
+
+jobs:
+  Test-request-file:
+    #if: ${{ github.event.label.name.contains('add model:') }
+    if: github.event.pull_request.base.ref == 'master' # check the target branch if it's master
+    runs-on: ubuntu-latest
+    steps:
+        - name: test
+          run: echo "Hii"
+  Job2:
+    if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
+    runs-on: self-hosted
+    steps:
+        - name: spierdalaj
+          uses: actions/checkout@v2
+        - name: name3
+          run: echo "Hello"
+        - name: name4
+          run: conda run -n ewatercycle --no-capture-output python main.py
