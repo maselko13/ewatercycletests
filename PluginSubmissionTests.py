@@ -15,8 +15,6 @@ def containsVariablesTest(data):
 
 def definesDischargeTest(data):
             temp = data.get("variables")
-            print (type(temp))
-            print(temp)
             condition = True
             for temp2 in temp:
                 try:
