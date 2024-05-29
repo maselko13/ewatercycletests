@@ -2,11 +2,18 @@ name: pull-check
 run-name: pullCheck
 on:
   pull_request:
-    types: [ labeled ]
+    types: [ labeled, opened ]
 
 jobs:
-  test-request-file:
+  Test-request-file:
     if: ${{ github.event.label.name.contains('add model:' }}
     runs-on: ubuntu-latest
-
-    
+        steps:
+        - name: test
+          run: echo "Hii"
+  Job2:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
+    steps:
+        - name: trigger
+          run: echo "Hello"
