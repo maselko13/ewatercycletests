@@ -18,7 +18,11 @@ jobs:
     runs-on: self-hosted
     steps:
         - name: clone-repo
-          run: git clone https://github.com/maselko13/ewatercycletests.git
+          uses: actions/checkout@v4
+          with:
+              ref: main
+              path: https://github.com/maselko13/ewatercycletests
+              token: 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
         - name: checkout 
           run: git checkout main
         - name: name3
