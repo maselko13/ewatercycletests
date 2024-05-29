@@ -1,6 +1,7 @@
 # basic model mock
 # for now only contains classes that are tested by our framework, TODO: add mocking for remaining methods
 class BasicModelMock:
+        notdischarge = 3.0
         def __init__(self) -> None:
             self.time = 0.0
 
