@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: test
-          uses: actions/checkout@v2
-        - run: npm ci
         - run: echo "Hii"
   Job2:
     runs-on: ubuntu-latest
     if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
     steps:
         - name: trigger
-          run: echo "Hello"
+          uses: actions/checkout@v2
+        - run: npm ci
+        - run: echo "Hello"
