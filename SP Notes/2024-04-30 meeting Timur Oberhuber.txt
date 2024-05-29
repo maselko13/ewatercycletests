@@ -1,0 +1,24 @@
+Notes of meeting with Timur Oberhuber 30-04-2024 week 2
+location: Google meet
+time: 12:00 - 12:20
+
+Notes:
+- Everyone mentioned what they did this week
+
+- asking Timur about our requirements doc:
+  be more clear in the requirements (e.g. upload test file as python doc)
+  A lot of must haves, move some to the should haves
+  overall not a bad plan, definitely doable
+  
+- keep in mind that in the final report a lot of the project plan can be in the appendix
+
+- remember to reference stuff like existing methods (MoSCoW, SCRUM)
+
+- talk about what repositories we need and how we should set them up
+
+- wednesday 12:00 08-05-2024 next meeting with Timur:
+   ToDo:
+   code of conduct
+   gitlab
+   start coding
+

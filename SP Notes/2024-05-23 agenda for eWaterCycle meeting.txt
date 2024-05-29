@@ -1,0 +1,28 @@
+Sheet of technical questions we have (Defacto agenda):
+
+1a) What is the pull request, where is it from, can we see examples, can we see what tests fail and pass?
+
+1b) What info do we get about the data, where is the model from, what type is the model?
+
+2a) The eWaterCycle base model has different methods than the base models, where is the proper documentation?
+
+2b) What variables do models share (which are global, which are typing, which are regional)
+
+3) Do our requirements meet your standards, how should we quantify them, do we need to negotiate about the amounts?
+
+4) What constitutes business logic?
+
+5) How should we measure accuracy (what error method?), how much error should a model be allowed to have?
+
+6) Can we have some faulty models to verify our tests?
+
+7) How should we structure test banks? (regions, criticality)
+
+8) Where should our test report be generated, is it supposed to be a github webhook? (block approval)
+
+9) How should we handle it when an approved model gets updated?
+
+10) What is going to merge into what, how do we get exact files?
+
+11) Are there models we need to test for that do not use a lumped or distributed base?
+

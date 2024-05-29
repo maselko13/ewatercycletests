@@ -1,0 +1,6 @@
+{
+    "forcing_file": "",
+    "precipitation_file": "/home/maselko123/esmvaltool_output/ewcrepg4ks9grx_20240523_101012/work/diagnostic/script/CMIP6_EC-Earth3_day_historical_r6i1p1f1_pr_gr_2000-2000.nc",
+    "leakiness": 1,
+    "temperature_file": "/home/maselko123/esmvaltool_output/ewcrepg4ks9grx_20240523_101012/work/diagnostic/script/CMIP6_EC-Earth3_day_historical_r6i1p1f1_tas_gr_2000-2000.nc"
+}

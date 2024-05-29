@@ -1,0 +1,119 @@
+meeting with eWaterCycle staff 2024-05-23
+location: eSciencePark Amsterdam
+time: 9:45 - 10:30
+
+Notes:
+1a) What is the pull request, where is it from, can we see examples, can we see what tests fail and pass?
+	models are implemented in their own repos, in a seperate repo as a python package you set up everything for the model plugin, it uses
+	python entry points, if you install it along with the main package it will show up.
+	
+	if you want to add a model you can use the template where everything is defined, you must install.
+	
+	the eWaterCycle package does not know anything about the models
+	
+	the models we need to check are stored externally
+	
+	we do not want the plugins to live in the eWaterCycle orginization
+	
+	pull request to add to verified list (add line of url to model) -> check the model using test suite -> if good allow through
+	
+	create branch that says in eWaterCycle "add model" to verified list that adds one "github url" -> we can assume they are public, otherwise fail
+
+	the tests live somewhere in the eWaterCycle package
+	handy if import checkingUtilities locally is possible
+	then have a final check at the end
+	
+	Our should check if the pull request correct
+	
+	we should test the model and the pull request of the model
+	
+	retest models that have been verified before
+	
+
+1b) What info do we get about the data, where is the model from, what type is the model?
+
+
+2a) The eWaterCycle base model has different methods than the base models, where is the proper documentation?
+	Every base parameter should be met, if it doesnt meet that then it fails
+	if you start up a model you should be able to do model.bmi.thingy and also check it
+	there are certain convenience methods in the eWaterCycle methods (can be "detected" if contains multiple BMI) <- also critical
+
+2b) What variables do models share (which are global, which are typing, which are regional)
+	Some people refer to a model as a model that refers to a specific region, eWaterCycle sees it as a software that solves
+	hydrological equations but is region agnostic 
+
+3) Do our requirements meet your standards, how should we quantify them, do we need to negotiate about the amounts?
+	If it works for two locations, it should work for everywhere
+	critcal thing: meridian problem (we will get a beautifull little forcing)
+	
+
+4) What constitutes business logic (standardisation)?
+	
+
+5) How should we measure accuracy (what error method?), how much error should a model be allowed to have?
+	Hydrostats package
+	nash efficiency, a variant on isc
+	be better than 0.6, cannot be higher than 1
+
+6) Can we have some faulty models to verify our tests?
+	They will give us a repo with branches for broken models
+
+7) How should we structure test banks? (regions, criticality)
+	
+
+8) Where should our test report be generated, is it supposed to be a github webhook? (block approval)
+
+
+9) How should we handle it when an approved model gets updated?
+
+
+10) What is going to merge into what, how do we get exact files?
+
+
+11) Are there models we need to test for that do not use a lumped or distributed base?
+
+
+extra notes:
+by default in the ewatercycle there are no models, but there are some default models defined
+are the defined models different from verified models?
+
+in the central package there should be a list of verified models?
+
+- is there a repo that defines the environment
+	there is a list that lives in the central repos of other repos that are verified
+	
+someone wants to add to the verified, our framework should check if it meets the requirements of quality assigned by eWaterCycle
+
+Models should use forcings to figure out what regions do
+
+if a model is not for a region it might throw an error, "I'm not for this region", and this would be a soft fail
+
+custom scenarios such as "no water"
+	no rain
+	same amount of rain consistently
+	some rain for _one_ timestep
+	check if water balance is ok
+	in the long term you want water in and out to balance out, keep the storage in mind <- business soft test
+	list the soft tests
+	
+hard tests should be:
+	security, BMI implementation, error handling
+	
+where should test reports be stored?
+	depends if you want tests long or short term?
+	allow user to download during the requesting
+	long term: store on github page
+	do not worry where it is stored
+
+test report:
+	human readable should be 
+	- explain test
+	- pass fail
+	- grades if graded
+	- what would be a good grade?
+	- Hydrograph in the test report, with the observation data if possible
+	
+falsifiable check as a want
+
+get values should always return the same size grid for a specific model and forcing instance even at different times
+ 

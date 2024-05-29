@@ -1,0 +1,13 @@
+---
+MeasureFlow:
+  critical: false
+  description: tests if the flow is large enough
+  name: MeasureFlow
+  passed: false
+  reason: The flow was equal to [8.0] which is lower than [9.0] so the test failed.
+TestGetFlow:
+  critical: true
+  description: tests if the method getFlow exists
+  name: TestGetFlow
+  passed: true
+  reason: The test passed successfully

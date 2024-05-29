@@ -1,0 +1,60 @@
+Notes of meeting with Rolf Hut 25-04-2024 week 1
+location: Civil engineering building TU Delft
+time: 10:00 - 10:30
+
+Notes:
+- Rolf is our main point of contact, the researcher software engineers are users so they're one step removed
+  they are the devs of eWatercycle as a platform, they'll know the technical details.
+  
+  Communicate with them through git. If this doesn't work use e-mail. this should create more thoughtfull communication
+  
+- User authentication is already covered, it wont be up to us.
+  The security we'll be working on is detecting malicious code.
+  Try blocking outside communication, stop it from installing things.
+  We make a list of things we have tested for.
+  ^^^^NICE TO HAVE^^^^
+
+- You can assume people are working with python in a jupyter environment.
+  Some do but most dont use an IDE.
+  Make sure they stay away from the command line.
+  
+- How Rolf imagines it:
+	someone tests their plugin on their own hardware,
+	they'll make a pull request on the eWatercycle repo asking if they can add their plugin, we should then run the tests on our the eWatercycle system.
+	return a report of the tests (which fail and what works)
+	
+	We could also create something seperate but it is not recommended.
+	
+- Hydrologist workflow:
+   forcing => data on how much water enters the system (input)
+   Q => how much water goes out of the system (output)
+   forcing => jupyter => BMI => model => BMI => jupyter => Q
+   
+   forcing data can be historical data or climate predictions
+   
+   They test their model against historical data
+   
+   DISTINCTION BETWEEN CALIBRATED AND NON CALIBRATED MODELS
+   all models need parameters
+   forcing => different every timeset
+   parameter => fixed for the entire experiment <== calibrated
+   
+
+- Must:
+  Test business logic
+  Work with pull requests <=== work this out a bit better
+  Test technical tests
+  Add and remove tests
+  
+  
+- Should :
+  Test for security
+  Benchmark models (not performance, but how well is this model capable of prediction)
+
+- Could :
+  Benchmark models for different regions
+  Calibrate models
+  Performance benchmarks (most important distinction is faster than real time or not for weather prediction) (How much faster?)
+
+- Wont :
+  our own UI or platform

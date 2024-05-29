@@ -1,0 +1,51 @@
+Notes of meeting with Timur Oberhuber 08-05-2024 week 3
+location: Google meet
+time: 12:00 - 12:34
+
+Notes:
+- What everyone did this week:
+  mostly research
+  set up week 5 meeting
+  finished requirements
+  report work
+
+- We will send the repos Timur needs to copy to him on mattermost:
+  - API skeleton
+  - Faulty model
+  - Correct model
+  - Existing test structure
+  - Atleast one approval on testing interface main branch and dev branch
+  - We can use the surfcloud machine as long as all our code ends up on gitlab
+  
+- Project plan feedback asked: How to create an architecture diagram
+  - you can make one with draw.io, make boxes and label them to structure your code. look at the eWaterCycle paper for an example.
+  
+- TU Coach situation:
+  - chance she is on holiday
+  - Timur will ask another professor for feedback, this will be in the form of an annotated PDF
+  - e-mail her again on friday
+  - mail her about the midterm presentation
+  
+- presentation:
+  - should be about 20 minutes
+  - do not let everyone present at this presentation, but everyone should present one presentation
+  - project plan as slides, show the changes you made
+  - demo of what you made so far
+  - client will probably give feedback which we can iterate on
+  - come up with who can answer what question for Q&A
+  - make a slide that shows what endterm meeting times work for us, instantly lock it down there
+  - try to get endterm presentation early in the week so Timur can go the bahamas
+
+- To get green we should have some must haves up and running next week
+
+- We need to show we check the quality of our tests:
+  - you can set up pipeline to check if tests fail
+  - how the correct and faulty models 
+
+- ethics:
+  - can be about the whole project
+  - as long as you thought about it and wrote about it  
+  
+- next meeting with Timur 15-05-2024 at 12:00
+  - this will be weekly time going forward
+  - probably in library  

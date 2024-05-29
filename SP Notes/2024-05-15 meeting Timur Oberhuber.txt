@@ -1,0 +1,57 @@
+Notes of meeting with Timur Oberhuber 15-05-2024 week 4
+location: Google meet
+time: 12:00 - 12:30
+
+Notes:
+-What we have done this week:
+	Technical writting on track
+	Started working on the repo
+	Running models on the gitlab repo
+	There is a framework prepared
+	
+
+-What will be done:
+	MVP that can, activate on pull, export to yaml, and run tests
+	
+-First spec tests up today
+
+-We have tests running on the surfcloud	
+
+-Midterm presentation:
+	there is a rubric on brightspace for the presentation
+	demo
+	diagram
+	methodology
+	Timur says:
+	- explain problem
+	- talk about architecture
+	- live demo <- (can be not live but will dock points)
+	- software quality
+	- what next? (list of what we have finished, and what we want to achieve)
+	
+-Week 10 Timur is not available on monday 12:00-15:00
+
+-Stuff on github cannot be graded
+	any code for github should still be on gitlab in a folder saying "this will be on github"
+	as long as Timur can see the code exists
+	
+-Skeleton of our project:
+	test suite upper class
+	test and test report are 
+	
+-Should requirements be 1 to 1 with issues?
+	response: They dont have to, as long as it is related to a requirement
+	
+-Add issues about report writting etcetera
+
+-We will be visiting Amsterdam in week 5 on thursday to meet eWaterCycle employees
+
+-Make sure to code more, get a working product and track it on gitlab!!
+
+-Do good on the presentation because I do not want extra working
+
+-There is a chance that you get failed if you as an individual do not do enough work
+
+-Post code on the gitlab even if it only works on the surfcloud
+
+-Next meeting with Timur right after midterm presentation 22-05-2024 16:00 - 16:30

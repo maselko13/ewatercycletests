@@ -1,0 +1,7 @@
+---
+name: ewatercycle
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - esmvaltool-python>=2.3.0

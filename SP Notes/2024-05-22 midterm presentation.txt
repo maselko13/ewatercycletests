@@ -1,0 +1,87 @@
+Notes of post midterm presentation
+location: TU Delft library
+time: 16:00 - 16:30
+
+Notes:
+
+-there are doubts if we are progressing properly
+
+-we are getting a red flag
+	does not mean we fail, it is formative
+	we must pick up for the final presentation
+	
+-if this was the final we would've failed
+
+-quality in software, quality and documentation is lacking:
+	no reasonable work in terms of software
+	last week our git was empty
+	it is a _software_ project, our product needs to be on point
+
+-product does not warrent 4.5 weeks of work in terms of coding and design quality
+
+-product does not seem to make use of the proper infrastructure
+
+-requirements should have been done in the first two weeks:
+	have them fully sharpened using SMART requirements
+
+-In the final presentation we must reason that all our musts are done and dusted:
+	for example not "a lot of tests"
+
+-Document what we do and implement it into the gitlab wiki, if its reported but not visible they cannot judge us
+
+-In terms of planning we should be more clear about what we are doing
+
+-Make more use of the client (Rolf wants more contact with us)
+
+-Get more feedback on how to improve from our TA, Client and Coach
+
+-Looking at what we have delivered there is a very skewed distribution of code contribution:
+	they want to see the code distribution equalize
+	
+-Presentation content was fine
+	Tech stack and quality was missing but we got it in the Q&A
+	
+-Demo was not sufficient:
+	show tests passing and failing in the application setting
+
+-Q&A was good, answers should be shorter and do not be afraid "we did not xyz this", this frees up time to answer actual questions
+
+-Try to have a more balanced Q&A
+
+-The two people that did not present will do the final presentation:
+	if you distribute among these two +1 extra it should be fine, the two "newcomers" should have majority however
+
+how to repair:
+-Use the time tomorrow to grab _all requirements_ 
+	make them SMART!
+	haggle with the client what amount of tests we can implement, what is realistic
+
+-Contact Coach with these requirements and how we are going to reach them in a reasonable time using weekly plannings:
+	At the latest they want an update halfway through week 6:
+		how we make everything measurable and reachable
+
+-Our main problem is the requirements!
+	Our working in an unfocused manner which impedes our progress greatly
+
+-Rolf has our back
+
+-Initiative and communication should also be expanded on not only within the group but also outside of it:
+	we must be more creative and work on what we can work on
+	
+-We are allowed to be faster than our plans, it is lower bound
+
+-MoSCoW rule of thumb: must haves by week 8, rest can be added after
+
+-Please be realistic and find an agreement that works with you client and coach
+
+-Make more use of the Client and Coach
+
+-Do not overload yourselves!
+
+-Today is formative, next week we give repair plan, if repair plan is succesful we will pass.
+
+-WE NEED TO GET GOING!
+
+-We can reach co-ordinators by mid next week
+
+-In what form should the plan be? pdf or smth

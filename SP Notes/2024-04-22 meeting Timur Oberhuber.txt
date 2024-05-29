@@ -1,0 +1,49 @@
+Notes of meeting with Timur Oberhuber 22-04-2024 week 1
+location: Drebbelweg pc-hall 1 TU Delft
+time: 17:30 - 17:55
+
+Notes:
+- Timur will be our first contact point for when things go wrong
+  he'll be partially responsible for grading and will be giving us passive advice
+  about the project
+
+- For subsequent meetings we should prepare an agenda, perhaps showing of the demo and informing him what we
+  have been doing
+  
+- We explained to Timur the basis of our project (testing hydrological plugin testing interface)
+
+- Informed Timur about group forming process
+
+- We should discuss what grade we are aiming to get (personally not too bothered)
+
+- Show that we are not doing stuff randomly, but using some systematic process
+  we show this through meetings, requirements engineering, gitlab usage
+  project owner, TA, and TU coach will give their opinion on how we utilised
+  them in our project
+  
+- Nothing is graded until the final report
+
+- Come to Timur for feedback intermitently
+
+- TU coach will give us feedback on our midterm, project plan and final report
+
+- Try to be as organized as possible <====== <====== <===== <===== <===== <====== <==== <====== <====== <======== <=======
+
+- project plan assignment on brightspace, due week 2 (check brightspace for more info)
+  you can copy paste the project plan into final report so make it nice to save
+  yourselves work early
+
+- Collect peoples schedules for the week 5 midterm, and plan it early
+
+- We will be meeting Timur 30 minutes a week, he prefers tuesdays, perfectly alligning with technical writing
+  we can meet him more often if necessary
+  
+- Coach and project owner can be online for midterm, for endterm they must be present
+  we of course must be there for the mid and endterm
+
+- Tell Timur what repos we want and what rules the repos should have
+
+- We should schedule meetings with the coaches and project owner but should prepare stuff beforehand
+  and send them materials before such a meeting
+  
+- Next meeting with Timur on tuesday 30-04-2024 at 12 o'clock

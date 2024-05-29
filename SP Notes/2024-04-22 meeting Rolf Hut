@@ -1,0 +1,58 @@
+Notes of meeting with Rolf Hut 22-04-2024 week 1
+location: Civil engineering building TU Delft
+time: 13:00 - 13:30
+
+Notes:
+- Ewatercycle meeting:
+	to be planned after week 2
+
+- course requirements:
+	software requirements due week 2
+	technical writing on mondays
+	presentation at the end of the course
+	rest is up to product owner
+
+- Rolf won't be available next week 
+
+- split group up according to agile/scrum methodology
+
+- Hydrology:
+	doing research about understanding what water does after falling from the athmosphere
+	used for predicting for water management (rivers, farmland, lakes, evaporation)
+	forecast model => weather information
+	precipitation => all form of events where water falls on the ground
+	cubic metres per second => form in which we talk about water flow rate in a river
+	
+- Problem:
+	Hydrologists are all trying to solve the same problem in different landscapes
+	different landscapes give different data, different models
+	
+	it boils down to rainfall in water out
+	
+	local assumptions can cause models to be different for example:
+		wageningen => 9 different soil layers, optional snow setting
+		finland => 9 different snow types, 1 soil layer
+	leads to slightly different results
+	
+	models are also made in differing programming languages
+	
+	eWatercycle uses jupyter environments to call models in containers, because it is defined in many languages it becomes a type of
+	universal adapter, BMI allows you to communicate between programming languages by converting types between languages.
+	
+	one jupyter environment can access multiple models.
+	
+	eWatercycle used to be one big package, they have moved to a plugin based system
+	
+	Third parties can make plugins for eWatercycle, we need to make software that can test these third party plugins
+	- is it properly implemented?
+	- is it secure?
+	- is business logic ok? (we need to figure this out through talking with eWatercycle employees)
+	- should not be set in stone, checks can be turned on and off and more checks can be added, without needing to be a computer scientist
+	- distinction between hard fails and warnings (some kind of certificates for being good at some things)
+	
+- We are getting access to jupyter notebooks to test out eWatercycle from an user perspective 
+- Next meeting on thursday morning 10 o'clock (25-04-2024)
+- Docs are updated to eWatercycle 2, but online info tends to still be on eWatercycle 1
+
+
+

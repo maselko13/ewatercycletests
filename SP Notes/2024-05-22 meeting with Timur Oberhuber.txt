@@ -1,0 +1,78 @@
+Notes of week 5 meeting with Timur
+location: TU Delft library
+time: 16:30 - 17:00
+
+notes:
+
+-Timur apoligizes for being too nice
+
+-we only started "working" in week 4 so we got harsh feedback
+
+-equalize work
+
+-write out plan clearly
+
+-Do not go crazy:
+	50 to 100 tests should be fine for a must
+	
+-Requirements should immediatly become issues, assign them among ourselves at the start of the week
+
+-Give issues time estimates
+
+-Make a pipeline
+
+-Documentation:
+	make more comments, write a readme "how to install, how to run tests, blahblah"
+	
+-For the demo:
+	the demo is unclear, explain better
+	Timur idea: "open a pull request, show code is running, this is what it will output"
+	show it passing and failing tests
+	
+-You run it and then is tells what tests pass and fail, if pass then allow aproval, else do not
+	look up pre-merge hooks
+	we will get all the info, just need to see what we can pull
+	
+-Report in a week:
+	List of requirements
+	week by week plan
+	time estimation and teamwork plans
+	requirements + 1 page of explain
+	
+-Timur will send code distribution
+	does not have to be equal, two people are not even on the git inspector
+	
+-Throw everything on the github!
+
+-Distribution is 1/4th of the planning grade
+
+-Work distribution only takes into account lines written (lol)
+	also stuff like q&a's and presentation
+	
+-Do not show gitinspect on the final presentation
+
+-Explain how issues are split up between everyone
+
+-Everyone works together on the musts, shoulds and coulds
+
+-During q&a you should spread out questions more evenly (give an internal planning split beforehand) (try not to answer subsequent questions)
+
+-We can demo using github, all the code still needs to be on gitlab for review
+
+-Our repo should be clonable from github, and then work immediatly with github (so no two versions)
+	documentation is important because the client 
+	readmes and comments (readmes are more important)
+
+-You can add different readmes in different folders and those readmes can explain different things
+
+-A documents folder for readmes would be nice
+
+-For the client and the coach send them a copy of the extra plan
+	show initiative and communicate with them
+	make emails so we have receipts (worst case)
+	
+-If we work consistently we will get the We
+
+-Before we send the extra plan to Client and Coach send it to Timur for review
+
+-Make a datumprikker for the datumprikker for the week 10 presentations
