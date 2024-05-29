@@ -1,8 +1,9 @@
 name: pull-check
 run-name: pullCheck
 on:
-  pull_request:
-    types: [ labeled, opened ]
+   workflow_dispatch:
+  #pull_request:
+   # types: [ labeled, opened ]
 
 jobs:
   Test-request-file:
