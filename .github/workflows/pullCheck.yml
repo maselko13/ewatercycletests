@@ -14,7 +14,6 @@ jobs:
         - name: test
           run: echo "Hii"
   Job2:
-    runs-on: ubuntu-latest
     if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
     runs-on: ubuntu-latest
     steps:
