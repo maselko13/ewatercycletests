@@ -8,6 +8,7 @@ on:
 jobs:
   Test-request-file:
     #if: ${{ github.event.label.name.contains('add model:') }
+    if: github.event.pull_request.base.ref == 'master' # check the target branch if it's master
     runs-on: ubuntu-latest
     steps:
         - name: test
