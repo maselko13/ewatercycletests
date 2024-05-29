@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
     steps:
-          uses: actions/checkout@v2
-          uses: actions/setup-python@v5
-          with:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-python@v5
+        - with:
                python-version: "3.12"
-          run: echo "Hello"
+        - run: echo "Hello"
