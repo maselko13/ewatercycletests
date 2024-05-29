@@ -16,19 +16,19 @@ def main():
     test2.run = lambda _: TestResult(False, "The flow was equal to [8.0] which is lower than [9.0] so the test failed.")
     testSuite = TestSuite()
     SpecTests.addSpecTests(testSuite)
-    # model = BasicModelMock()
+    model = BasicModelMock()
     # model = RunModelUtil.getwflowmodel() # Temporary for validating tests
-    model = RunModelUtil.getleakymodel()  # Temporary for validating tests
+    # model = RunModelUtil.getleakymodel()  # Temporary for validating tests
 
     #Simple Test for LeakyBucket
     test3 = Test(name="TestHasAllNonZero", description="tests if the output at each point in the model is not 0", critical=True, enabled=True)
     test3.run = lambda modelx: TestResult(RunModelUtil.neverzero(RunModelUtil.runxarraymodel(modelx, 0, 0.15)), "The output was 0 at some point")
-    testSuite.addTest(test3)
+    # testSuite.addTest(test3)
 
     #Simple Test for LeakyBucket
     test4 = Test(name="TestHasTotalNonZero", description="tests if the total output is not 0", critical=True, enabled=True)
     test4.run = lambda modelx: TestResult(RunModelUtil.sum(RunModelUtil.runxarraymodel(modelx, 0, 0.01)), "The total output was 0")
-    testSuite.addTest(test4)
+    # testSuite.addTest(test4)
 
     result: list[dict] = testSuite.runAll(model)
     # for now checking if tests are correct is in main, subject to debate though
