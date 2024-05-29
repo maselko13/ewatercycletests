@@ -17,8 +17,7 @@ jobs:
     if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
     runs-on: self-hosted
     steps:  
-        - name: run-submission-file-tests
-          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
+     
         - name: define yaml parser
           run: function parse_yaml {
                   local prefix=$2
@@ -42,8 +41,9 @@ jobs:
               repository: $repository
         - name: checkout 
           run: git checkout main
-        - name: test
+        - name: test   
           run: echo "Hello"
-    
+        - name: run-submission-file-tests
+          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
         - name: run-model-tests
           run: conda run -n ewatercycle --no-capture-output python main.py
