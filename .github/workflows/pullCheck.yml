@@ -8,7 +8,7 @@ jobs:
   Test-request-file:
     if: ${{ github.event.label.name.contains('add model:' }}
     runs-on: ubuntu-latest
-        steps:
+    steps:
         - name: test
           run: echo "Hii"
   Job2:
