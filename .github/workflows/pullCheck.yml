@@ -18,7 +18,7 @@ jobs:
     if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
     steps:
         - name: trigger
-        - uses: actions/checkout@v2
-        - uses: actions/setup-python@v2
+          uses: actions/checkout@v2
+      #  - uses: actions/setup-python@v2
         - run: py ewatercycletests/main.py
         - run: echo "Hello"
