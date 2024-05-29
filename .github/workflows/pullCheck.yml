@@ -22,4 +22,4 @@ jobs:
         - name: name3
           run: echo "Hello"
         - name: name4
-          run: run -n ewatercycle --no-capture-output python /mnt/c/Users/adamb/PycharmProjects/githubAPIeWaterCycle/ewatercycletests/main.py
+          run: conda run -n ewatercycle --no-capture-output python main.py
