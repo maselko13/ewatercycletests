@@ -26,4 +26,6 @@ jobs:
         - name: name3
           run: echo "Hello"
         - name: name4
+          run: python -m pip install py
+        - name: name5
           run: py ewatercycle/main.py
