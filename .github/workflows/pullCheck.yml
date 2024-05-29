@@ -18,7 +18,8 @@ jobs:
     runs-on: self-hosted
     steps:
         - name: checkout
-          uses: actions/checkout@v2
+          run: git clone https://github.com/maselko13/ewatercycletests.git
+          run: git checkout main
         - name: name3
           run: echo "Hello"
         - name: name4
