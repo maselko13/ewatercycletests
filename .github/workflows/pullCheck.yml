@@ -22,7 +22,6 @@ jobs:
           with:
               ref: main
               repository: maselko13/ewatercycletests
-              token: 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
         - name: checkout 
           run: git checkout main
         - name: name3
