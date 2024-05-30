@@ -20,15 +20,11 @@ jobs:
           uses: actions/checkout@v4
           with: 
                ref: main
-        - name: run-submission-file-tests
-          run: repository='maselko13/ewatercycletests'
-        - name: check-for-correct-repo-name
-          run: echo $repository
-        - name: clone-repo
+        - name: submission-file-tests
           uses: actions/checkout@v4
           with:
               ref: main
-              repository: $repository
+              repository: $(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)  
         - name: checkout
           run: git checkout main
         - name: test
