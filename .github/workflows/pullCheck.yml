@@ -23,7 +23,7 @@ jobs:
           with:
               ref: main
               repository: ${{steps.submission-file-tests.outputs.repository}}
-              path: /second
+              path: second
         - name: checkout
           run: git checkout main
   Test-model:
