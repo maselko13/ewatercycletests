@@ -21,7 +21,7 @@ jobs:
           with: 
                ref: main
         - name: run-submission-file-tests
-          run: repository = {$conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py}      
+          run: repository={$conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py}      
         - name: check-for-correct-repo-name
           run: echo $repository
         - name: clone-repo
