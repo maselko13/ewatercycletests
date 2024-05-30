@@ -24,6 +24,12 @@ jobs:
               ref: main
               repository: ${{steps.submission-file-tests.outputs.repository}}
               path: second
+        - name: move-to-directory
+          run: cd second
+        - name: move file
+          run: mv -f Mocks.py .
+        - name: move-back
+          run: cd ..
   Test-model:
     #if: ${{ github.event.label.name.contains('add model:') }
     if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
