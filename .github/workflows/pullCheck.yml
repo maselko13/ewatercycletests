@@ -16,29 +16,23 @@ jobs:
     if: github.event.pull_request.base.ref != 'master' # check the target branch if it's master
     runs-on: self-hosted
     steps:  
-
-        - name: define yaml parser
-          run: >
-            function parse_yaml {
-              local prefix=$2
-              local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
-              sed -ne "s|^\($s\):|\1|" \
-                   -e "s|^\($s\)\($w\)$s:$s[\"']\(.*\)[\"']$s\$|\1$fs\2$fs\3|p" \
-                   -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
-             awk -F$fs '{
-                 indent = length($1)/2;
-                 vname[indent] = $2;
-                 for (i in vname) {if (i > indent) {delete vname[i]}}
-                 if (length($3) > 0) {
-                    vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
-                    printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
-                 }
-              }'
-            }
-        - name: parse yaml file
-          run: parse_yaml sample.yml
+        - name: checkout main branch
+          uses: actions/checkout@v4
+          with: 
+               ref: main
+        - name: run-submission-file-tests
+          run: repository = {$conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py}      
+        - name: check-for-correct-repo-name
+          run: echo $repository
         - name: clone-repo
           uses: actions/checkout@v4
           with:
               ref: main
               repository: $repository
+        - name: checkout
+          run: git checkout main
+        - name: test
+          run: echo "Hello"
+        - name: run-model-tests
+          run: conda run -n ewatercycle --no-capture-output python main.py
+
