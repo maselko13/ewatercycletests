@@ -27,7 +27,7 @@ jobs:
         - name: move-to-directory
           run: cd second
         - name: move file
-          run: mv -f Mocks.py .
+          run: mv -f Mocks.py ..
         - name: move-back
           run: cd ..
   Test-model:
