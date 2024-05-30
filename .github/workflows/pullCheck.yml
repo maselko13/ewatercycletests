@@ -22,13 +22,11 @@ jobs:
                ref: main
         - name: submission-file-tests
           run: echo "repository=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV"  
-        - name: test-name
-          run: echo $repository
         - name: clone-repo
           uses: actions/checkout@v4
           with:
               ref: main
-              repository: $repository
+              repository: ${{steps.submission-file-tests.outputs.repository}}
         - name: checkout
           run: git checkout main
         - name: test
