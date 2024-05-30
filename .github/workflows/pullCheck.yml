@@ -23,7 +23,7 @@ jobs:
         - name: submission-file-tests
           run: echo "repository=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV"  
         - name: test-name
-        - run: echo $repository
+          run: echo $repository
         - name: clone-repo
           uses: actions/checkout@v4
           with:
