@@ -31,6 +31,7 @@ jobs:
         - name: move-back
           run: cd ..
   Test-model:
+    needs: Test-request-file
     if: ${{ github.event.label.name == 'add model' }} |
         github.event.pull_request.base.ref == 'master'
     runs-on: self-hosted
