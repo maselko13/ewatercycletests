@@ -16,6 +16,13 @@ jobs:
                ref: main
         - name: create-new-directory
           run: mkdir second
+        - id: files
+          uses: jitterbit/get-changed-files@v1
+        - name: get-submission-file
+        - run: |
+               for changed_file in ${{ steps.files.outputs.added }}; do
+                 mv changed_file .
+                 done
         - name: submission-file-tests
           run: echo "repository=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV"  
         - name: clone-repo
@@ -37,5 +44,19 @@ jobs:
     runs-on: self-hosted
     steps:  
         - name: run-model-tests
-          run: conda run -n ewatercycle --no-capture-output python second/main.py
-
+          run: echo "message=$(conda run -n ewatercycle --no-capture-output python second/main.py)" >> "$GITHUB_ENV"
+        - name: stash-test-result
+          run: git add second/output/testReport.yaml
+        - name: commit-test-results
+          run: git commit -m "Add test results"
+        - name: push-addition
+          run: git push
+        - uses: actions/github-script@v6
+          with:
+           script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: $message
+            })
