@@ -51,8 +51,7 @@ jobs:
           run: git commit -m "Add test results"
         - name: push-addition
           run: git push
-        - name: comment-pr
-          uses: actions/github-script@v6
+        - uses: actions/github-script@v6
           with:
              script: |
                 github.rest.issues.createComment({
