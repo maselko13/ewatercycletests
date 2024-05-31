@@ -19,7 +19,7 @@ jobs:
         - id: files
           uses: jitterbit/get-changed-files@v1
         - name: get-submission-file
-        - run: |
+          run: |
                for changed_file in ${{ steps.files.outputs.added }}; do
                  mv changed_file .
                  done
@@ -51,3 +51,14 @@ jobs:
           run: git commit -m "Add test results"
         - name: push-addition
           run: git push
+        - name: comment-PR
+          uses: actions/github-script@v6
+          with:
+             script: |
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: '$message'
+                })
+ 
