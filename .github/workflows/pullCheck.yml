@@ -6,7 +6,7 @@ on:
        types: [ labeled, opened ]
 jobs:
   Test-request-file:
-    if: ${{ github.event.label.name.contains('add model:') } |
+    if: ${{ github.event.label.name.contains('add model:')}} |
         github.event.pull_request.base.ref == 'master' # check the target branch if it's master
     runs-on: self-hosted
     steps:
@@ -31,7 +31,7 @@ jobs:
         - name: move-back
           run: cd ..
   Test-model:
-    if: ${{ github.event.label.name.contains('add model:') } |
+    if: ${{ github.event.label.name.contains('add model:')}} |
         github.event.pull_request.base.ref == 'master'
     runs-on: self-hosted
     steps:  
