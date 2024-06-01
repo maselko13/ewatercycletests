@@ -13,7 +13,7 @@ jobs:
         - name: checkout main branch
           uses: actions/checkout@v4
           with: 
-               ref:  ${{github.ref_name}}
+               ref: ${{github.event.pull_request.base.ref}}
         - name: create-new-directory
           run: mkdir second
         - name: submission-file-tests
