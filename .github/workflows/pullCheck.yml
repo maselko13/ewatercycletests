@@ -26,6 +26,8 @@ jobs:
               path: second
         - name: move-to-directory
           run: cd second
+        - name: test
+          run: ls
         - name: move file
           run: mv -f Mocks.py ..
         - name: move-back
