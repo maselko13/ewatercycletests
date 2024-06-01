@@ -1,0 +1,3 @@
+repository: maselko13/ewatercycletests
+variables:
+    - discharge: notdischarge
