@@ -43,7 +43,9 @@ jobs:
         - name: configure-username
           run: git config --local user.name maselko13
         - name: stash-test-result
-          run: git add second/output/testReport.yaml
+          run: mv second/output/testReport.yaml .
+        - name: stash-test-result
+          run: git add testReport.yaml
         - name: commit-test-results
           run: git commit -m "Add test results"
         - name: push-addition
