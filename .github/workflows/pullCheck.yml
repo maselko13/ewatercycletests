@@ -37,7 +37,7 @@ jobs:
     runs-on: self-hosted
     steps:  
         - name: run-model-tests
-          run: echo conda run -n ewatercycle --no-capture-output python second/main.py)
+          run: echo conda run -n ewatercycle --no-capture-output python second/main.py
         - name: configure-mail
           run: git config --local user.email konrad.gniaz@wp.pl
         - name: configure-username
