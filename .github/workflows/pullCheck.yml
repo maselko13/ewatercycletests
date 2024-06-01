@@ -19,7 +19,7 @@ jobs:
         - name: create-new-directory
           run: mkdir second
         - name: submission-file-tests
-          run: echo "repository=$(conda run -n ewatercycle --no-capture-output python submission.py)" >> "$GITHUB_ENV"  
+          run: echo "repository=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV"  
         - name: clone-repo
           uses: actions/checkout@v4
           with:
@@ -40,6 +40,10 @@ jobs:
           run: echo "message=$(conda run -n ewatercycle --no-capture-output python second/main.py)" >> "$GITHUB_ENV"
         - name: stash-test-result
           run: git add second/output/testReport.yaml
+        - name: configure-mail
+          run: git config --local user.email konrad.gniaz@wp.pl
+        - name: configure-username
+          run: git config --local user.name maselko13
         - name: commit-test-results
           run: git commit -m "Add test results"
         - name: push-addition
