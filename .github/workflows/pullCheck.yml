@@ -51,4 +51,3 @@ jobs:
           run: git commit -m "Add test results"
         - name: push-addition
           run: git push
-        - name: comment-PR
