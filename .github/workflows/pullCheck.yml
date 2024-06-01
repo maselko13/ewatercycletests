@@ -13,7 +13,9 @@ jobs:
         - name: checkout main branch
           uses: actions/checkout@v4
           with: 
-               ref: ${{github.head_ref}}
+               ref: ${{github.base_ref}}
+        - name: test
+          run: ls
         - name: create-new-directory
           run: mkdir second
         - name: submission-file-tests
@@ -26,6 +28,8 @@ jobs:
               path: second
         - name: move file
           run: mv -f second/Mocks.py .
+        - name: test2
+          run: ls
   Test-model:
     needs: Test-request-file
     if: ${{ github.event.label.name == 'add model' }} |
