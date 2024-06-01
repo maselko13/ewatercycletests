@@ -37,13 +37,13 @@ jobs:
     runs-on: self-hosted
     steps:  
         - name: run-model-tests
-          run: echo "message=$(conda run -n ewatercycle --no-capture-output python second/main.py)" >> "$GITHUB_ENV"
-        - name: stash-test-result
-          run: git add second/output/testReport.yaml
+          run: echo conda run -n ewatercycle --no-capture-output python second/main.py)
         - name: configure-mail
           run: git config --local user.email konrad.gniaz@wp.pl
         - name: configure-username
           run: git config --local user.name maselko13
+        - name: stash-test-result
+          run: git add second/output/testReport.yaml
         - name: commit-test-results
           run: git commit -m "Add test results"
         - name: push-addition
