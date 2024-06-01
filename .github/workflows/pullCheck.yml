@@ -13,16 +13,9 @@ jobs:
         - name: checkout main branch
           uses: actions/checkout@v4
           with: 
-               ref: main
+               ref:  ${{github.ref_name}}
         - name: create-new-directory
           run: mkdir second
-        - id: files
-          uses: jitterbit/get-changed-files@v1
-        - name: get-submission-file
-          run: |
-               for changed_file in ${{ steps.files.outputs.added }}; do
-                 mv changed_file .
-                 done
         - name: submission-file-tests
           run: echo "repository=$(conda run -n ewatercycle --no-capture-output python submission.py)" >> "$GITHUB_ENV"  
         - name: clone-repo
