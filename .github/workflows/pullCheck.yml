@@ -24,7 +24,7 @@ jobs:
                  mv changed_file .
                  done
         - name: submission-file-tests
-          run: echo "repository=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV"  
+          run: echo "repository=$(conda run -n ewatercycle --no-capture-output python submission.py)" >> "$GITHUB_ENV"  
         - name: clone-repo
           uses: actions/checkout@v4
           with:
@@ -52,13 +52,3 @@ jobs:
         - name: push-addition
           run: git push
         - name: comment-PR
-          uses: actions/github-script@v6
-          with:
-             script: |
-                github.rest.issues.createComment({
-                  issue_number: context.issue.number,
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  body: '$message'
-                })
- 
