@@ -1,0 +1,38 @@
+---
+CorrectStartTime:
+  critical: false
+  description: Checks if the start time of the model is correct
+  name: CorrectStartTime
+  passed: true
+  reason: The test passed successfully
+GridTypeMismatch:
+  critical: true
+  description: tests if the rank of the model's grids matches their type
+  name: GridTypeMismatch
+  passed: true
+  reason: The test passed successfully
+InitializeWrongConfig:
+  critical: true
+  description: tests if the model can be initialized without a proper config file
+    path
+  name: InitializeWrongConfig
+  passed: true
+  reason: The test passed successfully
+InvalidGridRank:
+  critical: true
+  description: tests if any of the model's grids have are of invalid rank
+  name: InvalidGridRank
+  passed: true
+  reason: The test passed successfully
+InvalidGridType:
+  critical: true
+  description: tests if any of the model's grids have are of invalid type
+  name: InvalidGridType
+  passed: true
+  reason: The test passed successfully
+ProperTimePassage:
+  critical: true
+  description: tests if the time passes properly when the model is updated
+  name: ProperTimePassage
+  passed: true
+  reason: The test passed successfully
