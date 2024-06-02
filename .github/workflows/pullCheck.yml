@@ -35,6 +35,8 @@ jobs:
     if: ${{ github.event.label.name == 'add model' }} |
         github.event.pull_request.base.ref == 'master'
     runs-on: self-hosted
+    permissions:
+      contents: write
     steps:  
         - name: clone-repo
           uses: actions/checkout@v4
