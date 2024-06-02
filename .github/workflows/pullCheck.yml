@@ -19,21 +19,17 @@ jobs:
         - name: checkout main branch
           uses: actions/checkout@v4
           with: 
-               ref: ${{github.base_ref}}
+               ref: ${{github.head_ref}}
         - name: test
           run: ls
         - name: create-new-directory
           run: mkdir second
-        - name: test33
-          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
         - name: submission-file-tests
-          run: echo "repository=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV" 
-        - name: test1
-          run: echo ${{steps.submission-file-tests.outputs.repository}}
+          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
         - name: clone-repo
           uses: actions/checkout@v4
           with:
-              repository: ${{steps.submission-file-tests.outputs.repository}}
+              repository: $(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)
               ref: main
               path: second
         - name: move file
