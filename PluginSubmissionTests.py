@@ -1,5 +1,7 @@
 import yaml
 
+# tests whether the submission file contains the repository link
+# input - data extracted from the submission.yml file
 def includesRepositoryLinkTest(data):
       try:
             if "/" not in data.get("repository"):
@@ -7,12 +9,16 @@ def includesRepositoryLinkTest(data):
       except:
             raise Exception("No repository name was provided")
 
+# tests whether the submission file contains the variable list
+# input - data extracted from the submission.yml file
 def containsVariablesTest(data):
       try:
             data.get("variables")
       except:
             raise Exception("No variable names were provided")
 
+# tests whether the submission file defines the vital discharge variables within its variable list
+# input - data extracted from the submission.yml file
 def definesDischargeTest(data):
             temp = data.get("variables")
             condition = True
@@ -22,8 +28,11 @@ def definesDischargeTest(data):
                 except:
                       raise Exception("The discharge variable was not provided")
 
+# extract data
 data = yaml.safe_load(open('submission.yml'))
+# test data
 includesRepositoryLinkTest(data)
 containsVariablesTest(data)
 definesDischargeTest(data)
+# print repository link so that workflow can clone it
 print(data.get("repository"))
