@@ -29,7 +29,7 @@ def correctStartTimeCondition(model):
 def timePassageCondition(model):
     number = model.get_current_time()
     model.update()
-    if model.get_current_time() == number + model.get_time_step():
+    if model.get_current_time() == number - model.get_time_step():
         return TestResult(True)
     else:
         return TestResult(False,"the model's time does not update properly")
