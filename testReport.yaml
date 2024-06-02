@@ -8,7 +8,9 @@ CorrectStartTime:
 GridTypeMismatch:
   critical: true
   description: tests if the rank of the model's grids matches their type
-  name: GridTypeMismatc
+  name: GridTypeMismatch
+  passed: true
+  reason: The test passed successfully
 InitializeWrongConfig:
   critical: true
   description: tests if the model can be initialized without a proper config file
