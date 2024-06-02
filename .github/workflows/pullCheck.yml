@@ -25,11 +25,13 @@ jobs:
         - name: create-new-directory
           run: mkdir second
         - name: submission-file-tests
-          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
+          run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV" 
+        - name: test1
+          run: echo ${{env.REPO}}
         - name: clone-repo
           uses: actions/checkout@v4
           with:
-              repository: $(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)
+              repository: ${{env.REPO}}
               ref: main
               path: second
         - name: move file
