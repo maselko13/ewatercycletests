@@ -1,11 +1,11 @@
 name: pull-check
 run-name: pullCheck
 on:
-   workflow_dispatch:
    pull_request:
-       types: [ labeled, reopened, opened ]
+       types: [ reopened, opened ]
 jobs:
   Test-request-file:
+    # ensures only plugin addition pull requests are checked
     if: startsWith(github.event.pull_request.title, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
     runs-on: self-hosted
     steps:
@@ -16,32 +16,26 @@ jobs:
                 name: 'maselko13'
                 email: 'konrad.gniaz@wp.pl'
                 token: '${{ secrets.GITHUB_TOKEN }}'
-        - name: checkout main branch
+        - name: checkout submission branch
           uses: actions/checkout@v4
           with: 
                ref: ${{github.head_ref}}
-        - name: test
-          run: ls
-        - name: create-new-directory
+        - name: create-directory-for-model-repo
           run: mkdir second
+          # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
         - name: submission-file-tests
           run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV" 
-        - name: test1
-          run: echo ${{env.REPO}}
         - name: clone-repo
           uses: actions/checkout@v4
           with:
               repository: ${{env.REPO}}
               ref: main
               path: second
-        - name: move file
+        - name: move-model-file
           run: mv -f second/Mocks.py .
-        - name: test2
-          run: |
-               cd second
-               ls
   Test-model:
     needs: Test-request-file
+    # ensures only plugin addition pull requests are checked
     if: startsWith(github.event.pull_request.title, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
     runs-on: self-hosted
     permissions:
