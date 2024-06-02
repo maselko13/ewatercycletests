@@ -65,5 +65,5 @@ jobs:
           run: echo ${{env.RESULT}}
         - name: approve-if-passed
           run: |
-               [ "{{env.RESULT}}" == "tests passed!" ] && exit 1
+               [ "{{env.RESULT}}" == "tests not passed!" ] && exit 1
 
