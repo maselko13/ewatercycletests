@@ -22,7 +22,7 @@ def definesDischargeTest(data):
                 except:
                       raise Exception("The discharge variable was not provided")
 
-data = yaml.safe_load(open('exampleSubmissionFile.yml'))
+data = yaml.safe_load(open('submission.yml'))
 includesRepositoryLinkTest(data)
 containsVariablesTest(data)
 definesDischargeTest(data)
