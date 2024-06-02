@@ -11,7 +11,7 @@ jobs:
         - name: test34
           run: echo ${{github.event.label.name}}
   Test-request-file:
-    if: startsWith(github.event.label.name, 'add model:')
+    if: startsWith(github.event.pull_request.title, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
     runs-on: self-hosted
     steps:
         - name: configure-credentials
@@ -43,7 +43,7 @@ jobs:
           run: ls
   Test-model:
     needs: Test-request-file
-    if: startsWith(github.event.label.name, 'add model:')
+    if: startsWith(github.event.github.event.pull_request.title, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
     runs-on: self-hosted
     permissions:
       contents: write
