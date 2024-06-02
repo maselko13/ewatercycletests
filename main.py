@@ -39,7 +39,7 @@ def main():
                 passed = False
     if passed:
         # some sort of verification that lets the system know that the branch is tested and can be removed from db
-        print("tests passed!")
+        print("tests not passed!")
     else:
         print("tests not passed!")
     # you can add a filename as extra argument, otherwise filename will be testReport
