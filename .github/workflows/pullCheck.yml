@@ -52,12 +52,10 @@ jobs:
           uses: oleksiyrudenko/gha-git-credentials@v2-latest
           with:
                 token: '${{ secrets.GITHUB_TOKEN }}'
-        - name: configure-username
-          run: git config --global user.name "maselko13"
-        - name: configure-email
-          run: git config --global user.email "konrad.gniaz@wp.pl"
         - name: commit-test-results
           run: |
+              git config --global user.name "maselko13"
+              git config --global user.email "konrad.gniaz@wp.pl"
               git add testReport.yaml
               git commit -m "Add test results"
               git push
