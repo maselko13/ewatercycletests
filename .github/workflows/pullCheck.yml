@@ -26,7 +26,7 @@ jobs:
               ref: main
               repository: ${{steps.submission-file-tests.outputs.repository}}
               path: second
-              token : ${{ secrets.GITHUB_TOKEN }}
+              token : ${{ secrets.TOKEN1 }}
         - name: move file
           run: mv -f second/Mocks.py .
         - name: test2
