@@ -59,6 +59,4 @@ jobs:
           run: |
               git add testReport.yaml
               git commit -m "Add test results"
-              git push
-              env:
-                GITHUB_TOKEN: ${{secrets.TOKEN1}}
+              git -c credential.helper='!f() { echo "username=maselko13"; echo "password=${{secrets.TOKEN1}}"; }; f' push
