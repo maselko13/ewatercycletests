@@ -6,8 +6,10 @@ def includesRepositoryLinkTest(data):
       try:
             if "/" not in data.get("repository"):
                   raise Exception("No repository name was provided")
+                  return -1
       except:
             raise Exception("No repository name was provided")
+            return -1
 
 # tests whether the submission file contains the variable list
 # input - data extracted from the submission.yml file
@@ -16,6 +18,7 @@ def containsVariablesTest(data):
             data.get("variables")
       except:
             raise Exception("No variable names were provided")
+            return -1
 
 # tests whether the submission file defines the vital discharge variables within its variable list
 # input - data extracted from the submission.yml file
@@ -27,6 +30,7 @@ def definesDischargeTest(data):
                       temp2.get('discharge')
                 except:
                       raise Exception("The discharge variable was not provided")
+                      return -1
 
 # extract data
 data = yaml.safe_load(open('submission.yml'))
