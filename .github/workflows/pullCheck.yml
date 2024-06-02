@@ -55,14 +55,13 @@ jobs:
           run: echo "RESULT=$(conda run -n ewatercycle --no-capture-output python second/main.py)" >> "$GITHUB_ENV" 
         - name: stash-test-result
           run: mv second/output/testReport.yaml .
-      #  - name: commit-test-results
-       #   run: |
-        #      git add testReport.yaml
-         #     git add -u
-          #    git commit -m "Add test results"
-           #   git -c credential.helper='!f() { echo "username=maselko13"; echo "password=${{secrets.TOKEN1}}"; }; f' push
-        - name: test44
-          run: echo ${{env.RESULT}}
+        - name: commit-test-results
+          run: |
+              git add testReport.yaml
+              git add -u
+              git commit -m "Add test results"
+              git -c credential.helper='!f() { echo "username=maselko13"; echo "password=${{secrets.TOKEN1}}"; }; f' push
+      # OR imitates an if here as linux checks the first command first
         - name: fail-on-tests-failing
           run: |
               [ "${{env.RESULT}}" == "tests passed!" ] || exit 1
