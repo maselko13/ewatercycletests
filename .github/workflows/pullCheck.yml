@@ -37,7 +37,9 @@ jobs:
         - name: move file
           run: mv -f second/Mocks.py .
         - name: test2
-          run: ls
+          run: |
+               cd second
+               ls
   Test-model:
     needs: Test-request-file
     if: startsWith(github.event.pull_request.title, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
