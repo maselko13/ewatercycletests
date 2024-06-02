@@ -39,14 +39,12 @@ jobs:
         - name: run-model-tests
           run: echo conda run -n ewatercycle --no-capture-output python second/main.py
         - name: configure-mail
-          run: git config --local user.email konrad.gniaz@wp.pl
+          run: git config --local user.email "action@github.com"
         - name: configure-username
-          run: git config --local user.name maselko13
+          run: git config --local user.name "GitHub Action"
         - name: stash-test-result
           run: mv second/output/testReport.yaml .
         - name: stash-test-result
           run: git add testReport.yaml
         - name: commit-test-results
           run: git commit -m "Add test results"
-        - name: push-addition
-          run: git push
