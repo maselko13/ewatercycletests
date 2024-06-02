@@ -6,7 +6,7 @@ on:
        types: [ labeled, reopened, opened ]
 jobs:
   Test-request-file:
-    if: startsWith(github.event.label.name, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
+    if: startsWith(github.event.label.name, 'add model:')
     runs-on: self-hosted
     steps:
         - name: configure-credentials
@@ -38,7 +38,7 @@ jobs:
           run: ls
   Test-model:
     needs: Test-request-file
-    if: startsWith(github.event.label.name, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
+    if: startsWith(github.event.label.name, 'add model:')
     runs-on: self-hosted
     permissions:
       contents: write
