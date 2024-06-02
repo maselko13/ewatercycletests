@@ -48,3 +48,5 @@ jobs:
           run: git add testReport.yaml
         - name: commit-test-results
           run: git commit -m "Add test results"
+        - name: push-changes
+        - run: git push
