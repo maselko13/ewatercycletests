@@ -31,7 +31,6 @@ def main():
     # testSuite.addTest(test4)
 
     result: list[dict] = testSuite.runAll(model)
-    GenerateReport.generateReportYaml(yaml.dump(result), os.path.join(os.getcwd(),  'output'))
     # for now checking if tests are correct is in main, subject to debate though
     passed = True
     for i in result:
@@ -43,9 +42,8 @@ def main():
         print("tests passed!")
     else:
         print("tests not passed!")
-        return 1;
     # you can add a filename as extra argument, otherwise filename will be testReport
-
+    GenerateReport.generateReportYaml(yaml.dump(result), os.path.join(os.getcwd(),  'output'))
 
 if __name__ == "__main__":
     main()
