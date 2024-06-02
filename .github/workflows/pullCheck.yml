@@ -10,6 +10,13 @@ jobs:
         github.event.pull_request.base.ref == 'master' # check the target branch if it's master
     runs-on: self-hosted
     steps:
+        - name: configure-credentials
+          uses: oleksiyrudenko/gha-git-credentials@v2-latest
+          with:
+                global: true
+                name: 'maselko13'
+                email: 'konrad.gniaz@wp.pl'
+                token: '${{ secrets.GITHUB_TOKEN }}'
         - name: checkout main branch
           uses: actions/checkout@v4
           with: 
@@ -48,13 +55,6 @@ jobs:
           run: echo conda run -n ewatercycle --no-capture-output python second/main.py
         - name: stash-test-result
           run: mv second/output/testReport.yaml .
-        - name: configure-credentials
-          uses: oleksiyrudenko/gha-git-credentials@v2-latest
-          with:
-                global: true
-                name: 'maselko13'
-                email: 'konrad.gniaz@wp.pl'
-                token: '${{ secrets.GITHUB_TOKEN }}'
         - name: commit-test-results
           run: |
               git config --global user.name "maselko13"
