@@ -61,6 +61,8 @@ jobs:
               git add -u
               git commit -m "Add test results"
               git -c credential.helper='!f() { echo "username=maselko13"; echo "password=${{secrets.TOKEN1}}"; }; f' push
+        - name: test44
+          run: echo ${{env.RESULT}}
         - name: approve-if-passed
           if: ${{env.RESULT}} == 'tests not passed!'
           run: exit 1
