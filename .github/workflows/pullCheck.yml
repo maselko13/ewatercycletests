@@ -50,3 +50,5 @@ jobs:
           run: git commit -m "Add test results"
         - name: push-changes
           run: git push
+        - name: give-username
+          run: echo "maselko13"
