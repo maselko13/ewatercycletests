@@ -57,9 +57,8 @@ jobs:
           run: mv second/output/testReport.yaml .
         - name: commit-test-results
           run: |
-              git config --global user.name "maselko13"
-              git config --global user.email "konrad.gniaz@wp.pl"
-              git config --global user.password ${{secrets.TOKEN1}}
               git add testReport.yaml
               git commit -m "Add test results"
               git push
+              env:
+                GITHUB_TOKEN: ${{secrets.TOKEN1}}
