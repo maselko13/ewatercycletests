@@ -60,3 +60,8 @@ class BasicModelMock:
 
         def get_time_units(self):
             return "days"
+
+# Model that implements nothing which makes it fail everything
+class worstModelMock:
+    def __init__(self) -> None:
+        return

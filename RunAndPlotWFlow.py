@@ -15,7 +15,7 @@ import ewatercycle.analysis
 print(ewatercycle.models.sources)
 
 shape = Path(ewatercycle.__file__).parent / "testing/data/Rhine/Rhine.shp"
-# ewatercycle.parameter_sets.download_example_parameter_sets()
+ewatercycle.parameter_sets.download_example_parameter_sets()
 
 
 # cmip_dataset = {
@@ -85,10 +85,8 @@ forcing = ewatercycle.forcing.sources["WflowForcing"](
 )
 
 
-# model = Wflow(version="2020.1.1", parameter_set=parameter_set, forcing=forcing)
-model = Wflow(
-    version="2020.1.3", parameter_set=parameter_set, forcing=forcing
-)
+#model = Wflow(version="2020.1.1", parameter_set=parameter_set, forcing=forcing)
+model = Wflow(version="2020.1.3", parameter_set=parameter_set, forcing=forcing)
 
 cfg_file, cfg_dir = model.setup(
     end_time="1992-12-15T00:00:00Z",
