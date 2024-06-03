@@ -33,7 +33,7 @@ def definesDischargeTest(data):
                       return -1
 
 # extract data
-data = yaml.safe_load(open('workflows/submission.yml'))
+data = yaml.safe_load(open('submission.yml'))
 # test data
 includesRepositoryLinkTest(data)
 containsVariablesTest(data)
