@@ -35,6 +35,12 @@ class RunModelUtil:
             shape=None,
         )
         model = Wflow(version="2020.1.1", parameter_set=parameter_set, forcing=forcing)
+        cfg_file, cfg_dir = model.setup(
+            end_time="1992-12-15T00:00:00Z",
+            # use `cfg_dir="/path/to/output_dir"` to specify the output directory
+        )
+
+        model.initialize(cfg_file)
         return model
 
     @staticmethod
@@ -53,7 +59,10 @@ class RunModelUtil:
             end_time="2000-12-31T00:00:00Z",
             shape=shape.absolute(),
         )
-        return LeakyBucket(forcing=forcing)
+        model = LeakyBucket(forcing=forcing)
+        cfg_file, _ = model.setup(leakiness=1)
+        model.initialize(cfg_file)
+        return model
 
 
     @staticmethod
