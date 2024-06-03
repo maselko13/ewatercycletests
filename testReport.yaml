@@ -4,15 +4,15 @@ cannotUpdateAfterFinalizeCondition:
   description: Checks if the .finalize method of the model is correctly implemented
   enabled: true
   name: cannotUpdateAfterFinalizeCondition
-  passed: false
-  reason: error occurred, are these functions implemented properly? .finalize
+  passed: true
+  reason: Finalized correctly
 correctStartTime:
   critical: true
   description: Checks if the start time of the model is correct
   enabled: true
   name: correctStartTime
-  passed: false
-  reason: error occurred, are these functions implemented properly? .start_time, .end_time
+  passed: true
+  reason: The test passed successfully
 gridTypeMismatch:
   critical: true
   description: tests if the rank of the model's grids matches their type
@@ -25,46 +25,44 @@ hasBmi:
   description: Checks if .bmi is implemented
   enabled: true
   name: hasBmi
-  passed: false
-  reason: error occurred, are these functions implemented properly? .bmi
+  passed: true
+  reason: The test passed successfully
 hasCheckParameterSet:
   critical: true
   description: Checks if ._check_parameter_set is implemented
   enabled: true
   name: hasCheckParameterSet
-  passed: false
-  reason: error occurred, are these functions implemented properly? ._check_parameter_set
+  passed: true
+  reason: The test passed successfully
 hasEndTimeAsDatetime:
   critical: true
   description: Checks if .end_time_as_datetime is implemented and has correct typing
   enabled: true
   name: hasEndTimeAsDatetime
-  passed: false
-  reason: error occurred, are these functions implemented properly? .end_time_as_datetime
+  passed: true
+  reason: The test passed successfully
 hasEndTimeAsIsostr:
   critical: true
   description: Checks if .end_time_as_isostr is implemented and has correct format
   enabled: true
   name: hasEndTimeAsIsostr
-  passed: false
-  reason: error occurred, are these functions implemented properly? .end_time_as_isostr
+  passed: true
+  reason: The test passed successfully
 hasGetLatLonGrid:
   critical: true
   description: Checks if the .get_latlon_grid method of the model is correctly implemented
   enabled: true
   name: hasGetLatLonGrid
-  passed: false
-  reason: error occurred, are these functions implemented properly? .get_value_at_coords,
-    .output_var_names
+  passed: true
+  reason: The test passed successfully
 hasGetValueAsXArray:
   critical: true
   description: Checks if the .get_value_as_xarray method of the model is correctly
     implemented
   enabled: true
   name: hasGetValueAsXArray
-  passed: false
-  reason: error occurred, are these functions implemented properly? .get_value_as_xarray,
-    .output_var_names
+  passed: true
+  reason: The test passed successfully
 hasGetValueAtCoords:
   critical: false
   description: tests if the .get_value_at_coords method is implemented properly
@@ -80,79 +78,79 @@ hasMakeBmiInstance:
   description: Checks if ._make_bmi_instance is implemented
   enabled: true
   name: hasMakeBmiInstance
-  passed: false
-  reason: error occurred, are these functions implemented properly? ._make_bmi_instance
+  passed: true
+  reason: The test passed successfully
 hasMakeCfgDir:
   critical: true
   description: Checks if _make_cfg_dir is implemented
   enabled: true
   name: hasMakeCfgDir
-  passed: false
-  reason: error occurred, are these functions implemented properly? ._make_cfg_dir
+  passed: true
+  reason: The test passed successfully
 hasMakeCfgFile:
   critical: true
   description: Checks if _make_cfg_file is implemented
   enabled: true
   name: hasMakeCfgFile
-  passed: false
-  reason: error occurred, are these functions implemented properly? ._make_cfg_file
+  passed: true
+  reason: The test passed successfully
 hasParameters:
   critical: true
   description: Checks if .parameters is implemented
   enabled: true
   name: hasParameters
-  passed: false
-  reason: error occurred, are these functions implemented properly? .parameters
+  passed: true
+  reason: The test passed successfully
 hasReprArgs:
   critical: true
   description: Checks if .__repr_args__ is implemented
   enabled: true
   name: hasReprArgs
-  passed: false
-  reason: error occurred, are these functions implemented properly? .__repr_args
+  passed: true
+  reason: The test passed successfully
 hasStartTimeAsDatetime:
   critical: true
   description: Checks if .start_time_as_datetime is implemented and has correct typing
   enabled: true
   name: hasStartTimeAsDatetime
-  passed: false
-  reason: error occurred, are these functions implemented properly? .start_time_as_datetime
+  passed: true
+  reason: The test passed successfully
 hasStartTimeAsIsoStr:
   critical: true
   description: Checks if .start_time_as_isostr is implemented and has correct format
   enabled: true
   name: hasStartTimeAsIsoStr
-  passed: false
-  reason: error occurred, are these functions implemented properly? .start_time_as_isostr
+  passed: true
+  reason: The test passed successfully
 hasTimeAsDatetime:
   critical: true
   description: Checks if .time_as_datetime is implemented and has correct typing
   enabled: true
   name: hasTimeAsDatetime
-  passed: false
-  reason: error occurred, are these functions implemented properly? .time_as_datetime
+  passed: true
+  reason: The test passed successfully
 hasTimeAsIsostr:
   critical: true
   description: Checks if .time_as_isostr is implemented and has correct format
   enabled: true
   name: hasTimeAsIsostr
-  passed: false
-  reason: error occurred, are these functions implemented properly? .time_as_isostr
+  passed: true
+  reason: The test passed successfully
 hasTimeUnitCondition:
   critical: true
   description: Checks if the .time_unit method of the model is correctly implemented
   enabled: true
   name: hasTimeUnitCondition
-  passed: false
-  reason: error occurred, are these functions implemented properly? .time_units
+  passed: true
+  reason: The test passed successfully
 hasVarsOutAndGets:
   critical: true
   description: Checks if .output_var_names, .get_value is implemented and all variables
     are reachable and of type ndarray
   enabled: true
   name: hasVarsOutAndGets
-  passed: false
-  reason: error occurred, are these functions implemented properly? .output_var_names
+  passed: true
+  reason: The test passed successfully
 invalidGridRank:
   critical: true
   description: tests if any of the model's grids have are of invalid rank
@@ -167,26 +165,25 @@ invalidGridType:
   name: invalidGridType
   passed: true
   reason: The test passed successfully
-passed: false
+passed: true
 positiveTimeStep:
   critical: false
   description: Checks if the time step of the model is greater than 0
   enabled: true
   name: positiveTimeStep
-  passed: false
-  reason: error occurred, are these functions implemented properly? .time_step
+  passed: true
+  reason: The test passed successfully
 properTimePassage:
   critical: true
   description: tests if the time passes properly when the model is updated
   enabled: true
   name: properTimePassage
-  passed: false
-  reason: error occurred, are these functions implemented properly? .time, .time_step,
-    .update
+  passed: true
+  reason: The test passed successfully
 someVersionCondition:
   critical: true
   description: Checks if the .version method of the model is correctly implemented
   enabled: true
   name: someVersionCondition
-  passed: false
-  reason: error occurred, are these functions implemented properly? .version
+  passed: true
+  reason: The test passed successfully
