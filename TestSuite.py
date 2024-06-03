@@ -74,7 +74,7 @@ class TestSuite:
                 result[test.name] = test.start(model)
                 if test.critical and not test.testResult.passed:
                     passed = False
-                if not test.testResult.passed :
-                    print("test failed: " + test.name)
+              #  if not test.testResult.passed :
+                  #  print("test failed: " + test.name)
         result[c.SUITE_PASSED_ATTRIBUTE] = passed
         return result

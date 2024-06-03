@@ -25,11 +25,11 @@ def main():
     else:
         print("tests failed!")
 
-    print(result)
+  #  print(result)
     # you can add a filename as extra argument, otherwise filename will be testReport
-    print("Generating Yaml")
+   # print("Generating Yaml")
     GenerateReport.generateReportYaml(yaml.dump(result), os.path.join(os.getcwd(),  'output'))
-    print("Generating MarkDown")
+   # print("Generating MarkDown")
     GenerateReport.generateMarkDown(result, "output.md", "MockModel v1")
 
 if __name__ == "__main__":
