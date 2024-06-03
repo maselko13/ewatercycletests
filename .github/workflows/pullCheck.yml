@@ -35,6 +35,8 @@ jobs:
               path: second
         - name: move-model-file
           run: mv -f second/Mocks.py .
+        - name: get-comment-body
+          run: echo ${{ github.event.comment.body }}
   Test-model:
     needs: Test-request-file
     # ensures only plugin addition pull requests are checked
