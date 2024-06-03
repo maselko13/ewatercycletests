@@ -65,7 +65,7 @@ jobs:
           run: |
               [ "${{env.RESULT}}" == "tests passed!" ] || exit 1
   Finish-testing:
-          needs: Test-request-file
+          needs: Test-model
           runs-on: self-hosted
           steps:
               - name: test
