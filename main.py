@@ -14,9 +14,9 @@ def main():
     testSuite: TestSuite = TestSuite()
 
     # model = Mocks.BasicModelMock()
-    # model = Mocks.worstModelMock()
+    model = Mocks.worstModelMock()
     #model = RunModelUtil.getwflowmodel() # Temporary for validating tests
-    model = RunModelUtil.getleakymodel()  # Temporary for validating tests
+    # model = RunModelUtil.getleakymodel()  # Temporary for validating tests
 
     result: dict = testSuite.runAll(model)
     if result[c.SUITE_PASSED_ATTRIBUTE]:
