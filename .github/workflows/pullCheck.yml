@@ -52,7 +52,7 @@ jobs:
         - name: run-model-tests
           run: conda run -n ewatercycle --no-capture-output python main.py
         - name: run-model-tests-as-output
-          run: echo "RESULT=$(conda run -n ewatercycle --no-capture-output python second/main.py)" >> "$GITHUB_ENV" 
+          run: echo "RESULT=$(conda run -n ewatercycle --no-capture-output python main.py)" >> "$GITHUB_ENV" 
         - name: stash-test-result
           run: mv second/output/testReport.yaml .
         - name: commit-test-results
