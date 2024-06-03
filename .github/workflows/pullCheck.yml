@@ -64,9 +64,3 @@ jobs:
         - name: fail-on-tests-failing
           run: |
               [ "${{env.RESULT}}" == "tests passed!" ] || exit 1
-  Finish-testing:
-          needs: Test-model
-          runs-on: self-hosted
-          steps:
-              - name: test
-                run: echo tests passed!
