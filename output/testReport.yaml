@@ -1,38 +1,189 @@
 ---
-CorrectStartTime:
-  critical: false
+cannotUpdateAfterFinalizeCondition:
+  critical: true
+  description: Checks if the .finalize method of the model is correctly implemented
+  enabled: true
+  name: cannotUpdateAfterFinalizeCondition
+  passed: true
+  reason: Finalized correctly
+correctStartTime:
+  critical: true
   description: Checks if the start time of the model is correct
-  name: CorrectStartTime
+  enabled: true
+  name: correctStartTime
   passed: true
   reason: The test passed successfully
-GridTypeMismatch:
+gridTypeMismatch:
   critical: true
   description: tests if the rank of the model's grids matches their type
-  name: GridTypeMismatch
+  enabled: true
+  name: gridTypeMismatch
   passed: true
   reason: The test passed successfully
-InitializeWrongConfig:
+hasBmi:
   critical: true
-  description: tests if the model can be initialized without a proper config file
-    path
-  name: InitializeWrongConfig
+  description: Checks if .bmi is implemented
+  enabled: true
+  name: hasBmi
   passed: true
   reason: The test passed successfully
-InvalidGridRank:
+hasCheckParameterSet:
+  critical: true
+  description: Checks if ._check_parameter_set is implemented
+  enabled: true
+  name: hasCheckParameterSet
+  passed: true
+  reason: The test passed successfully
+hasEndTimeAsDatetime:
+  critical: true
+  description: Checks if .end_time_as_datetime is implemented and has correct typing
+  enabled: true
+  name: hasEndTimeAsDatetime
+  passed: true
+  reason: The test passed successfully
+hasEndTimeAsIsostr:
+  critical: true
+  description: Checks if .end_time_as_isostr is implemented and has correct format
+  enabled: true
+  name: hasEndTimeAsIsostr
+  passed: true
+  reason: The test passed successfully
+hasGetLatLonGrid:
+  critical: true
+  description: Checks if the .get_latlon_grid method of the model is correctly implemented
+  enabled: true
+  name: hasGetLatLonGrid
+  passed: true
+  reason: The test passed successfully
+hasGetValueAsXArray:
+  critical: true
+  description: Checks if the .get_value_as_xarray method of the model is correctly
+    implemented
+  enabled: true
+  name: hasGetValueAsXArray
+  passed: true
+  reason: The test passed successfully
+hasGetValueAtCoords:
+  critical: false
+  description: tests if the .get_value_at_coords method is implemented properly
+  enabled: true
+  name: hasGetValueAtCoords
+  passed: false
+  reason: 'error occured, are these functions implemented properly? .get_value_at_coords,
+    .coords_to_indices
+
+    DOES NOT NEED TO BE IMPLEMENTED FOR LUMPED MODELS SUCH AS LEAKYBUCKET'
+hasMakeBmiInstance:
+  critical: true
+  description: Checks if ._make_bmi_instance is implemented
+  enabled: true
+  name: hasMakeBmiInstance
+  passed: true
+  reason: The test passed successfully
+hasMakeCfgDir:
+  critical: true
+  description: Checks if _make_cfg_dir is implemented
+  enabled: true
+  name: hasMakeCfgDir
+  passed: true
+  reason: The test passed successfully
+hasMakeCfgFile:
+  critical: true
+  description: Checks if _make_cfg_file is implemented
+  enabled: true
+  name: hasMakeCfgFile
+  passed: true
+  reason: The test passed successfully
+hasParameters:
+  critical: true
+  description: Checks if .parameters is implemented
+  enabled: true
+  name: hasParameters
+  passed: true
+  reason: The test passed successfully
+hasReprArgs:
+  critical: true
+  description: Checks if .__repr_args__ is implemented
+  enabled: true
+  name: hasReprArgs
+  passed: true
+  reason: The test passed successfully
+hasStartTimeAsDatetime:
+  critical: true
+  description: Checks if .start_time_as_datetime is implemented and has correct typing
+  enabled: true
+  name: hasStartTimeAsDatetime
+  passed: true
+  reason: The test passed successfully
+hasStartTimeAsIsoStr:
+  critical: true
+  description: Checks if .start_time_as_isostr is implemented and has correct format
+  enabled: true
+  name: hasStartTimeAsIsoStr
+  passed: true
+  reason: The test passed successfully
+hasTimeAsDatetime:
+  critical: true
+  description: Checks if .time_as_datetime is implemented and has correct typing
+  enabled: true
+  name: hasTimeAsDatetime
+  passed: true
+  reason: The test passed successfully
+hasTimeAsIsostr:
+  critical: true
+  description: Checks if .time_as_isostr is implemented and has correct format
+  enabled: true
+  name: hasTimeAsIsostr
+  passed: true
+  reason: The test passed successfully
+hasTimeUnitCondition:
+  critical: true
+  description: Checks if the .time_unit method of the model is correctly implemented
+  enabled: true
+  name: hasTimeUnitCondition
+  passed: true
+  reason: The test passed successfully
+hasVarsOutAndGets:
+  critical: true
+  description: Checks if .output_var_names, .get_value is implemented and all variables
+    are reachable and of type ndarray
+  enabled: true
+  name: hasVarsOutAndGets
+  passed: true
+  reason: The test passed successfully
+invalidGridRank:
   critical: true
   description: tests if any of the model's grids have are of invalid rank
-  name: InvalidGridRank
+  enabled: true
+  name: invalidGridRank
   passed: true
   reason: The test passed successfully
-InvalidGridType:
+invalidGridType:
   critical: true
   description: tests if any of the model's grids have are of invalid type
-  name: InvalidGridType
+  enabled: true
+  name: invalidGridType
   passed: true
   reason: The test passed successfully
-ProperTimePassage:
+passed: true
+positiveTimeStep:
+  critical: false
+  description: Checks if the time step of the model is greater than 0
+  enabled: true
+  name: positiveTimeStep
+  passed: true
+  reason: The test passed successfully
+properTimePassage:
   critical: true
   description: tests if the time passes properly when the model is updated
-  name: ProperTimePassage
+  enabled: true
+  name: properTimePassage
+  passed: true
+  reason: The test passed successfully
+someVersionCondition:
+  critical: true
+  description: Checks if the .version method of the model is correctly implemented
+  enabled: true
+  name: someVersionCondition
   passed: true
   reason: The test passed successfully
