@@ -64,3 +64,5 @@ jobs:
         - name: fail-on-tests-failing
           run: |
               [ "${{env.RESULT}}" == "tests passed!" ] || exit 1
+        - name: check
+          run: echo checks complete!
