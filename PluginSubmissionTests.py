@@ -38,5 +38,3 @@ data = yaml.safe_load(open('submission.yml'))
 includesRepositoryLinkTest(data)
 containsVariablesTest(data)
 definesDischargeTest(data)
-# print repository link so that workflow can clone it
-print(data.get("repository"))
