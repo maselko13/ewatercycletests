@@ -9,24 +9,17 @@ jobs:
     if: startsWith(github.event.pull_request.title, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
     runs-on: self-hosted
     steps:
-        - name: configure-credentials
-          uses: oleksiyrudenko/gha-git-credentials@v2-latest
-          with:
-                global: true
-                name: 'maselko13'
-                email: 'konrad.gniaz@wp.pl'
-                token: '${{ secrets.GITHUB_TOKEN }}'
         - name: checkout submission branch
           uses: actions/checkout@v4
           with: 
                ref: ${{github.head_ref}}
         - name: create-directory-for-model-repo
           run: mkdir second
-        - name: submission-file-tests
-          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
+        - name: model-list-tests
+          run: conda run -n ewatercycle --no-capture-output python ModelModificationTests.py
           # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
-        - name: submission-file-tests-as-output
-          run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV" 
+        - name: model-list-tests-as-output
+          run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python ModelModificationTests.py)" >> "$GITHUB_ENV" 
         - name: clone-repo
           uses: actions/checkout@v4
           with:
@@ -35,8 +28,10 @@ jobs:
               path: second
         - name: move-model-file
           run: mv -f second/Mocks.py .
-        - name: get-comment-body
-          run: echo ${{ github.event.comment.body }}
+        - name: move-submission-file
+          run: mv -f second/submission.yml .
+        - name: submission-file-tests
+          run: conda run -n ewatercycle --no-capture-output python ModelModificationTests.py
   Test-model:
     needs: Test-request-file
     # ensures only plugin addition pull requests are checked
