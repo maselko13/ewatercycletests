@@ -31,7 +31,7 @@ jobs:
         - name: move-submission-file
           run: mv -f second/submission.yml .
         - name: submission-file-tests
-          run: conda run -n ewatercycle --no-capture-output python ModelModificationTests.py
+          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
   Test-model:
     needs: Test-request-file
     # ensures only plugin addition pull requests are checked
