@@ -1,1 +1,2 @@
-
+name: basicmodel
+repository: maselko13/ewatercycletests
