@@ -1,0 +1,3 @@
+repository: maselko13/gitworkflowtest
+variables:
+    - discharge: notdischarge

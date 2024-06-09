@@ -38,3 +38,4 @@ data = yaml.safe_load(open('submission.yml'))
 includesRepositoryLinkTest(data)
 containsVariablesTest(data)
 definesDischargeTest(data)
+
