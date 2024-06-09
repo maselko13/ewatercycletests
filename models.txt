@@ -1,2 +1,2 @@
 name: basicmodel
-repository: maselko13/ewatercycletests
+repository: maselko13/gitworkflowtest
