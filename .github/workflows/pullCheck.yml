@@ -12,7 +12,17 @@ jobs:
         - name: checkout submission branch
           uses: actions/checkout@v4
           with: 
-               ref: ${{github.head_ref}}
+             ref: ${{github.head_ref}}
+        - name: Get changed files
+          id: changed-files
+          uses: tj-actions/changed-files@v44
+        - name: List all changed files
+          env:
+           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          run: |
+           for file in ${ALL_CHANGED_FILES}; do
+             echo "$file was changed"
+           done
         - name: create-directory-for-model-repo
           run: mkdir second
         - name: model-list-tests
