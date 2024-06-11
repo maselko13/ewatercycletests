@@ -4,7 +4,7 @@ from TestSuite import TestSuite
 from TestResult import TestResult
 from TestReportMaker import GenerateReport
 import SpecTests
-import Mocks
+# import Mocks
 import os.path
 import yaml
 import constants as c
