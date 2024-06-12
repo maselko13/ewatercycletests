@@ -20,7 +20,7 @@ jobs:
           env:
            ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
           run: |
-           [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || core.setFailed()
+           [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || exit 1
         - name: create-directory-for-model-repo
           run: mkdir second
         - name: model-list-tests
