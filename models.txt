@@ -1,2 +1,4 @@
 name: basicmodel
 repository: maselko13/gitworkflowtest
+name: basicmodel
+repository: maselko13/gitworkflowtest
