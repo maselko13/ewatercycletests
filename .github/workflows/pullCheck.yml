@@ -65,6 +65,8 @@ jobs:
           with:
                name: test result
                path: output/testReport.yaml
+        - name: FUCK-YOU
+          run: echo ${{ env.RESULT }}
       # OR imitates an if here as linux checks the first command firsta
         - name: fail-on-tests-failing
           if: ${{ env.RESULT != env.PASS }}
