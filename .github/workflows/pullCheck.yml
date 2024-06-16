@@ -66,6 +66,4 @@ jobs:
       # OR imitates an if here as linux checks the first command first
         - name: fail-on-tests-failing
           run: |
-              if "${{env.RESULT}}" != "tests passed!"
-              then
-                  core.setFailed()
+               "${{env.RESULT}}" == "tests passed!" || core.setFailed()
