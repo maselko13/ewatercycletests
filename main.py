@@ -21,7 +21,7 @@ def main():
     result: dict = testSuite.runAll(model)
     if result[c.SUITE_PASSED_ATTRIBUTE]:
         # some sort of verification that lets the system know that the branch is tested and can be removed from db
-        print("tests passed!")
+        print("tests failed!")
     else:
         print("tests failed!")
 
