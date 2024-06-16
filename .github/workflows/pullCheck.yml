@@ -3,6 +3,8 @@ run-name: pullCheck
 on:
    pull_request:
        types: [ reopened, opened ]
+env:
+  PASS: tests passed!
 jobs:
   Test-request-file:
     # ensures only plugin addition pull requests are checked
@@ -65,7 +67,7 @@ jobs:
                path: output/testReport.yaml
       # OR imitates an if here as linux checks the first command firsta
         - name: fail-on-tests-failing
-          if: ${{ env.RESULT }} != "tests passed!"
+          if: ${{ env.RESULT != env.PASS }}
           uses: actions/github-script@v7
           with:
            script: |
