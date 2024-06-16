@@ -65,11 +65,11 @@ jobs:
                path: output/testReport.yaml
       # OR imitates an if here as linux checks the first command first
         - name: fail-on-tests-failing
+          if: ${{ "env.RESULT" != "tests passed!" }}
           uses: actions/github-script@v7
           with:
            script: |
-            if ("${{env.RESULT}}" != "tests passed!") {
-                 core.setFailed('Tests Failed!')
-              }
+                core.setFailed('Tests Failed!')
+              
               
 
