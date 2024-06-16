@@ -69,4 +69,3 @@ jobs:
               if "${{env.RESULT}}" != "tests passed!"
               then
                   core.setFailed()
-              fi
