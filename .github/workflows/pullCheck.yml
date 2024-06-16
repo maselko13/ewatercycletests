@@ -67,7 +67,7 @@ jobs:
                path: output/testReport.yaml
       # OR imitates an if here as linux checks the first command firsta
         - name: fail-on-tests-failing
-          if: ${{ env.RESULT == PASS }}
+          if: ${{ env.RESULT == env.PASS }}
           run: echo ${{ env.RESULT }}
               
               
