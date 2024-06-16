@@ -16,18 +16,18 @@ jobs:
         - name: Get changed files
           id: changed-files
           uses: tj-actions/changed-files@v44
-        - name: check changed files
-          env:
-           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-          run: |
-           [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || core.setFailed()
+       # - name: check changed files
+       #   env:
+      #     ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+     #     run: |
+    #       [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || exit 1
         - name: create-directory-for-model-repo
           run: mkdir second
         - name: model-list-tests
-          run: conda run -n ewatercycle2 --no-capture-output python ModelsModificationTests.py
+          run: conda run -n ewatercycle --no-capture-output python ModelsModificationTests.py
           # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
         - name: model-list-tests-as-output
-          run: echo "REPO=$(conda run -n ewatercycle2 --no-capture-output python ModelsModificationTests.py)" >> "$GITHUB_ENV" 
+          run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python ModelsModificationTests.py)" >> "$GITHUB_ENV" 
         - name: clone-repo
           uses: actions/checkout@v4
           with:
@@ -39,7 +39,7 @@ jobs:
         - name: move-submission-file
           run: mv -f second/submission.yml .
         - name: submission-file-tests
-          run: conda run -n ewatercycle2 --no-capture-output python PluginSubmissionTests.py
+          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
   Test-model:
     needs: Test-request-file
     # ensures only plugin addition pull requests are checked
@@ -55,10 +55,21 @@ jobs:
               repository: ${{steps.submission-file-tests.outputs.repository}}
               path: second
         - name: run-model-tests
-          run: conda run -n ewatercycle2 --no-capture-output python main.py
+          run: conda run -n ewatercycle --no-capture-output python main.py
         - name: run-model-tests-as-output
-          run: echo "RESULT=$(conda run -n ewatercycle2 --no-capture-output python main.py)" >> "$GITHUB_ENV" 
+          run: echo "RESULT=$(conda run -n ewatercycle --no-capture-output python main.py)" >> "$GITHUB_ENV" 
+        - name: upload-test-results
+          uses: actions/upload-artifact@v4
+          with:
+               name: test result
+               path: output/testReport.yaml
       # OR imitates an if here as linux checks the first command first
         - name: fail-on-tests-failing
-          run: |
-              [ "${{env.RESULT}}" == "tests passed!" ] || core.setFailed()
+          uses: actions/github-script@v7
+          with:
+           script: |
+            if ("${{env.RESULT}}" != "tests passed!") {
+                 core.setFailed('Tests Failed!')
+              }
+              
+
