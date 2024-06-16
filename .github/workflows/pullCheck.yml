@@ -24,10 +24,10 @@ jobs:
         - name: create-directory-for-model-repo
           run: mkdir second
         - name: model-list-tests
-          run: conda run -n ewatercycle2 --no-capture-output python ModelsModificationTests.py
+          run: conda run -n ewatercycle --no-capture-output python ModelsModificationTests.py
           # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
         - name: model-list-tests-as-output
-          run: echo "REPO=$(conda run -n ewatercycle2 --no-capture-output python ModelsModificationTests.py)" >> "$GITHUB_ENV" 
+          run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python ModelsModificationTests.py)" >> "$GITHUB_ENV" 
         - name: clone-repo
           uses: actions/checkout@v4
           with:
@@ -55,9 +55,9 @@ jobs:
               repository: ${{steps.submission-file-tests.outputs.repository}}
               path: second
         - name: run-model-tests
-          run: conda run -n ewatercycle2 --no-capture-output python main.py
+          run: conda run -n ewatercycle --no-capture-output python main.py
         - name: run-model-tests-as-output
-          run: echo "RESULT=$(conda run -n ewatercycle2 --no-capture-output python main.py)" >> "$GITHUB_ENV" 
+          run: echo "RESULT=$(conda run -n ewatercycle --no-capture-output python main.py)" >> "$GITHUB_ENV" 
         - name: upload-test-results
           uses: actions/upload-artifact@v4
           with:
