@@ -52,6 +52,7 @@ jobs:
           HEAD_SHA: ${{ env.HEAD_SHA }}
         uses: peter-evans/create-or-update-comment@v4
         with:
+          token: ${{ secrets.TOKEN1 }}
           issue-number: ${{ env.PR_NUMBER }}
           body: |-
             ## Build Preview
