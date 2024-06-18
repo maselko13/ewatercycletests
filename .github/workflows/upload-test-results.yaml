@@ -10,8 +10,6 @@ on:
 
 jobs:
   comment-on-pr:
-    permissions:
-        actions: write
     runs-on: self-hosted
     steps:
 
