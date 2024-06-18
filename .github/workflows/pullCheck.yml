@@ -67,6 +67,10 @@ jobs:
           with:
                name: test result
                path: output/testReport.yaml
+        - name: add artifact links to pull request 
+          uses: tonyhallett/artifacts-url-comments@v1.1.0
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # OR imitates an if here as linux checks the first command firsta
         - name: fail-on-tests-failing
           if: ${{ env.RESULT != env.PASS }}
