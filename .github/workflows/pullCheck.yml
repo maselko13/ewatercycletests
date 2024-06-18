@@ -36,8 +36,8 @@ jobs:
               repository: ${{env.REPO}}
               ref: main
               path: second
-        - name: move-model-file
-          run: mv -f second/Mocks.py .
+  #      - name: move-model-file
+ #         run: mv -f second/Mocks.py .
         - name: move-submission-file
           run: mv -f second/submission.yml .
         - name: submission-file-tests
