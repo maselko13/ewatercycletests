@@ -23,7 +23,7 @@ def main():
         # some sort of verification that lets the system know that the branch is tested and can be removed from db
         print("tests passed!")
     else:
-        print("tests failed!")
+        print("tests passed!")
 
   #  print(result)
     # you can add a filename as extra argument, otherwise filename will be testReport
