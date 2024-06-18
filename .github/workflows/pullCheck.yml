@@ -67,20 +67,6 @@ jobs:
           with:
                name: test result
                path: output/testReport.yaml
-        - name: Update Comment
-          uses: peter-evans/create-or-update-comment@v4
-          with:
-            token: ${{ secrets.TOKEN1 }}
-            issue-number: ${{ github.event.number }}
-            body: |-
-              ## Build Preview
-
-  
-              You can view the test results here
-
-              | Test Results | ${{ steps.upload-test-results.outputs.artifact-url }} 
-
-              [badge]: https://img.shields.io/badge/Build-Success!-3fb950?logo=github&style=for-the-badge
       # OR imitates an if here as linux checks the first command firsta
         - name: fail-on-tests-failing
           if: ${{ env.RESULT != env.PASS }}
