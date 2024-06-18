@@ -1,4 +1,4 @@
-name: pull-check
+name: Model Verification
 run-name: pullCheck
 on:
    pull_request:
