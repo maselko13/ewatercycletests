@@ -1,5 +1,6 @@
 import yaml
-import Exceptions
+import workflows.Exceptions
+import os
 
 # tests whether the submission file contains the repository link
 # input - data extracted from the submission.yml file
@@ -50,7 +51,8 @@ def definesCriticalVarsTest(data,variables):
             raise Exceptions.NotFoundException("The submission does not include any variables")
 
 # extract data
-data = yaml.safe_load(open('submissionMocks/submission.yml'))
+dir_path = os.path.dirname(os.path.realpath(__file__))
+data = yaml.safe_load(open(os.path.join(dir_path, 'submissionMocks/submission.yml')))
 variables = ['discharge']
 # test data
 includesRepositoryLinkTest(data)

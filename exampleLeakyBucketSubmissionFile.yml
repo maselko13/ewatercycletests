@@ -1,0 +1,13 @@
+# this is a simple submission file for plugin owners
+# One should include a link to the repository as the repository variable: in the format user/name.
+# The repository should be public so that our framework can clone it and test the plugin.
+repository: maselko13/ewatercycletests
+model_name: 'LeakyBucket'
+model_type: 'Lumped'
+output_variable_name: 'discharge'
+parameter_set_name: null
+setup_variables:
+        - leakiness: 1
+custom_forcing_name: null
+custom_forcing_variables: null
+

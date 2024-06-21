@@ -1,4 +1,6 @@
-import Exceptions
+import workflows.Exceptions
+import os
+from workflows import Exceptions
 
 def containsNameTest(data):
     try:
@@ -25,10 +27,10 @@ def includesRepositoryLinkTest(data):
       return data[1].split()[1]
 
 # extract data
-file1 = open('models.txt', 'r')
+dir_path = os.path.dirname(os.path.realpath(__file__))
+file1 = open(os.path.join(dir_path, 'submissionMocks/models.txt'))
 data = file1.readlines()
 # test data
 containsNameTest(data)
 # print repository link so that workflow can clone it
 print(includesRepositoryLinkTest(data))
-
