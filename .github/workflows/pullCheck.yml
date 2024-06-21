@@ -69,7 +69,12 @@ jobs:
         - name: run-model-tests
           run: conda run -n ewatercycle --no-capture-output python main.py
         - name: run-model-tests-as-output
-          run: echo "RESULT=$(conda run -n ewatercycle --no-capture-output python main.py)" >> "$GITHUB_ENV" 
+          run: |
+             {
+             echo 'REPO<<EOF'
+             conda run -n ewatercycle --no-capture-output python main.py
+             echo EOF
+             } >> "$GITHUB_ENV"
         - name: upload-test-results
           uses: actions/upload-artifact@v4
           with:
