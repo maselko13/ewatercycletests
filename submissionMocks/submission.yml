@@ -1,0 +1,9 @@
+repository: maselko13/gitworkflowtest
+variables:
+    - discharge: notdischarge
+forcing_parameters:
+    - dataset: "EC-Earth3"
+    - project: "CMIP6"
+    - grid: "gr"
+    - exp: "historical"
+    - ensemble: "r6i1p1f1"

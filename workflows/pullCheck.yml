@@ -3,30 +3,33 @@ run-name: pullCheck
 on:
    pull_request:
        types: [ reopened, opened ]
+env:
+  PASS: tests passed!
 jobs:
   Test-request-file:
     # ensures only plugin addition pull requests are checked
     if: startsWith(github.event.pull_request.title, 'add model:') &&  github.event.pull_request.base.ref == 'main' 
     runs-on: self-hosted
     steps:
-        - name: configure-credentials
-          uses: oleksiyrudenko/gha-git-credentials@v2-latest
-          with:
-                global: true
-                name: 'maselko13'
-                email: 'konrad.gniaz@wp.pl'
-                token: '${{ secrets.GITHUB_TOKEN }}'
         - name: checkout submission branch
           uses: actions/checkout@v4
           with: 
-               ref: ${{github.head_ref}}
+             ref: ${{github.head_ref}}
+        - name: Get changed files
+          id: changed-files
+          uses: tj-actions/changed-files@v44
+       # - name: check changed files
+       #   env:
+      #     ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+     #     run: |
+    #       [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || exit 1
         - name: create-directory-for-model-repo
           run: mkdir second
-        - name: submission-file-tests
-          run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
+        - name: model-list-tests
+          run: conda run -n ewatercycle2 --no-capture-output python ModelsModificationTests.py
           # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
-        - name: submission-file-tests-as-output
-          run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py)" >> "$GITHUB_ENV" 
+        - name: model-list-tests-as-output
+          run: echo "REPO=$(conda run -n ewatercycle2 --no-capture-output python ModelsModificationTests.py)" >> "$GITHUB_ENV" 
         - name: clone-repo
           uses: actions/checkout@v4
           with:
@@ -35,6 +38,10 @@ jobs:
               path: second
         - name: move-model-file
           run: mv -f second/Mocks.py .
+        - name: move-submission-file
+          run: mv -f second/submission.yml .
+        - name: submission-file-tests
+          run: conda run -n ewatercycle2 --no-capture-output python PluginSubmissionTests.py
   Test-model:
     needs: Test-request-file
     # ensures only plugin addition pull requests are checked
@@ -50,18 +57,21 @@ jobs:
               repository: ${{steps.submission-file-tests.outputs.repository}}
               path: second
         - name: run-model-tests
-          run: conda run -n ewatercycle --no-capture-output python second/main.py
+          run: conda run -n ewatercycle2 --no-capture-output python main.py
         - name: run-model-tests-as-output
-          run: echo "RESULT=$(conda run -n ewatercycle --no-capture-output python second/main.py)" >> "$GITHUB_ENV" 
-        - name: stash-test-result
-          run: mv second/output/testReport.yaml .
-        - name: commit-test-results
-          run: |
-              git add testReport.yaml
-              git add -u
-              git commit -m "Add test results"
-              git -c credential.helper='!f() { echo "username=maselko13"; echo "password=${{secrets.TOKEN1}}"; }; f' push
-      # OR imitates an if here as linux checks the first command first
+          run: echo "RESULT=$(conda run -n ewatercycle2 --no-capture-output python main.py)" >> "$GITHUB_ENV" 
+        - name: upload-test-results
+          uses: actions/upload-artifact@v4
+          with:
+               name: test result
+               path: output/testReport.yaml
+      # OR imitates an if here as linux checks the first command firsta
         - name: fail-on-tests-failing
-          run: |
-              [ "${{env.RESULT}}" == "tests passed!" ] || exit 1
+          if: ${{ env.RESULT != env.PASS }}
+          uses: actions/github-script@v7
+          with:
+           script: |
+                core.setFailed('Tests Failed!')
+              
+              
+
