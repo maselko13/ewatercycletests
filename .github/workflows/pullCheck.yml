@@ -71,7 +71,7 @@ jobs:
         - name: run-model-tests-as-output
           run: |
              {
-             echo 'REPO<<EOF'
+             echo 'RESULT<<EOF'
              conda run -n ewatercycle --no-capture-output python main.py
              echo EOF
              } >> "$GITHUB_ENV"
