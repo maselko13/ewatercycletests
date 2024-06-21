@@ -1,5 +1,6 @@
 import Exceptions
-
+import os
+import Exceptions
 def containsNameTest(data):
     try:
         data[0]
@@ -22,7 +23,7 @@ def includesRepositoryLinkTest(data):
       if "/" not in data[1]:
           raise Exceptions.WrongFormatException("The repository inclusion in the models.txt has the wrong format!")
           return -1
-      return data[1].split()[1]
+      return data[1].split()[1].strip()
 
 # extract data
 file1 = open('models.txt', 'r')
@@ -31,4 +32,3 @@ data = file1.readlines()
 containsNameTest(data)
 # print repository link so that workflow can clone it
 print(includesRepositoryLinkTest(data))
-
