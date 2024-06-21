@@ -30,18 +30,20 @@ jobs:
           # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
         - name: model-list-tests-as-output
           run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python ModelsModificationTests.py)" >> "$GITHUB_ENV" 
-        - name: clone-repo
-          uses: actions/checkout@v4
-          with:
-              repository: ${{env.REPO}}
-              ref: main
-              path: second
+      #  - name: clone-repo
+     #     uses: actions/checkout@v4
+    #      with:
+   #           repository: ${{env.REPO}}
+  #            ref: main
+ #             path: second
   #      - name: move-model-file
  #         run: mv -f second/Mocks.py .
-        - name: install-plugin
-          run: pip install git+https://github.com/eWaterCycle/leakybucket-bmi
-        - name: move-submission-file
-          run: mv -f second/submission.yml .
+        - name: clone-repo
+          run: pip install git+${{env.REPO}}
+     #   - name: install-plugin
+     #     run: pip install git+https://github.com/eWaterCycle/leakybucket-bmi
+   #     - name: move-submission-file
+  #        run: mv -f second/submission.yml .
         - name: submission-file-tests
           run: conda run -n ewatercycle --no-capture-output python PluginSubmissionTests.py
   Test-model:
@@ -52,12 +54,12 @@ jobs:
     permissions:
       contents: write
     steps:  
-        - name: clone-repo
-          uses: actions/checkout@v4
-          with:
-              ref: main
-              repository: ${{steps.submission-file-tests.outputs.repository}}
-              path: second
+    #    - name: clone-repo
+    #      uses: actions/checkout@v4
+   #       with:
+  #            ref: main
+  #            repository: ${{steps.submission-file-tests.outputs.repository}}
+ #             path: second
         - name: run-model-tests
           run: conda run -n ewatercycle --no-capture-output python main.py
         - name: run-model-tests-as-output
@@ -66,7 +68,7 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
                name: test result
-               path: output/testReport.yaml
+               path: output
       # OR imitates an if here as linux checks the first command firsta
         - name: fail-on-tests-failing
           if: ${{ env.RESULT != env.PASS }}
