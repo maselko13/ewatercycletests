@@ -26,8 +26,7 @@ def includesRepositoryLinkTest(data):
       return data[1].split()[1].strip()
 
 # extract data
-dir_path = os.path.dirname(os.path.realpath(__file__))
-file1 = open(os.path.join(dir_path, 'models.txt'))
+file1 = open('models.txt', 'r')
 data = file1.readlines()
 # test data
 containsNameTest(data)
