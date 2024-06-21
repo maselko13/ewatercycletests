@@ -23,7 +23,7 @@ def includesRepositoryLinkTest(data):
       if "/" not in data[1]:
           raise Exceptions.WrongFormatException("The repository inclusion in the models.txt has the wrong format!")
           return -1
-      return data[1].split()[1]
+      return data[1].split()[1].strip()
 
 # extract data
 dir_path = os.path.dirname(os.path.realpath(__file__))
