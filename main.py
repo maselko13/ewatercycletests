@@ -85,9 +85,7 @@ def main():
         print("tests passed!")
 
     # you can add a filename as extra argument, otherwise filename will be testReport
-    print("Generating Yaml")
     GenerateReport.generate_report_yaml(yaml.dump(result), os.path.join(os.getcwd(), 'output'))
-    print("Generating MarkDown")
     GenerateReport.generate_mark_down(result, os.path.join(os.getcwd(), 'output'), "output", data["model_name"])
 #
 #

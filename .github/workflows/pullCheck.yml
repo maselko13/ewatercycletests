@@ -28,8 +28,14 @@ jobs:
         - name: model-list-tests
           run: conda run -n ewatercycle --no-capture-output python models_modification_tests.py
           # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
-    #    - name: model-list-tests-as-output
-   #       run: echo "REPO=$(conda run -n ewatercycle --no-capture-output python models_modification_tests.py)" >> "$GITHUB_ENV" 
+        - name: model-list-tests-as-output
+          run: |
+             {
+             echo 'REPO<<EOF'
+             conda run -n ewatercycle --no-capture-output python models_modification_tests.py
+             echo EOF
+             } >> "$GITHUB_ENV"
+
       #  - name: clone-repo
      #     uses: actions/checkout@v4
     #      with:
@@ -39,7 +45,7 @@ jobs:
   #      - name: move-model-file
  #         run: mv -f second/Mocks.py .
         - name: clone-repo
-          run: pip install git+https://github.com/eWaterCycle/leakybucket-bmi
+          run: pip install git+${{env.REPO}}
      #   - name: install-plugin
      #     run: pip install git+https://github.com/eWaterCycle/leakybucket-bmi
    #     - name: move-submission-file
