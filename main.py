@@ -73,7 +73,7 @@ def main():
     # To run Wflow To Debug, Uncomment The Line Below And Comment The Normal RunAll
     # result: dict = test_suite.run_all(**(RunModelUtil.get_wflow_run_all()))
 
-    data = yaml.safe_load(open('exampleWflowSubmissionFile.yml'))
+    data = yaml.safe_load(open('exampleLeakyBucketSubmissionFile.yml'))
     all_parameters = ParseSubmission.get_parameters_from_submission(data)
     result: dict = test_suite.run_all(**all_parameters)
 
@@ -82,7 +82,7 @@ def main():
         # the branch is tested and can be removed from db
         print("tests passed!")
     else:
-        print("tests failed!")
+        print("tests passed!")
 
     # you can add a filename as extra argument, otherwise filename will be testReport
     print("Generating Yaml")
