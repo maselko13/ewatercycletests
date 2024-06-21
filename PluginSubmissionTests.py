@@ -52,7 +52,7 @@ def definesCriticalVarsTest(data,variables):
 
 # extract data
 dir_path = os.path.dirname(os.path.realpath(__file__))
-data = yaml.safe_load(open(os.path.join(dir_path, 'submission.yml')))
+data = yaml.safe_load(open(os.path.join(dir_path, 'exampleLeakyBucketSubmissionFile.yml')))
 variables = ['discharge']
 # test data
 includesRepositoryLinkTest(data)
