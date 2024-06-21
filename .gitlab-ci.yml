@@ -1,0 +1,22 @@
+image: continuumio/miniconda3:latest
+
+stages:
+  - test
+
+run-pytest-in-conda-env:
+  stage: test
+  script:
+    - exit 0
+#    - apt-get update
+#    - apt-get install -y xorg-dev libglu1-mesa libgl1-mesa-dev xvfb libxinerama1 libxcursor1
+#    - export DISPLAY=:0
+#    - Xvfb $DISPLAY -screen 0 1400x900x24 +extension RANDR &
+#    - apt-get clean
+#    - conda env create --file environment.yml
+#    - conda init bash
+#    - source ~/.bashrc
+#    - conda activate ewatercycle
+#    - pip install -r requirements.txt
+#    - era5cli config --uid 314311 --key "09a612c1-6578-4519-b1a8-2be4f06b7e80"
+#    - chmod a=rwx . # sets permissions
+#    - pytest

@@ -1,0 +1,29 @@
+# As described in the ewatercycle repository:
+# https://github.com/eWaterCycle/ewatercycle/blob/main/pyproject.toml
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.pylint.messages_control]
+#disable = "C0330, C0326"
+
+[tool.pylint.format]
+max-line-length = "88"
+
+[tool.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+# pytest files, classes and functions are named using the following pattern:
+# preferable use "validate" instead of "test" to reduce ambiguity.
+python_files = "validate_*.py test_*"
+python_classes = "Validate* Test*"
+python_functions = "validate_* test_*"

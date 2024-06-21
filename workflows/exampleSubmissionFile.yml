@@ -2,10 +2,6 @@
 # One should include a link to the repository as the repository variable: in the format user/name.
 # The repository should be public so that our framework can clone it and test the plugin.
 repository: maselko13/ewatercycletests
-model_name: 'LeakyBucket'
-model_type: 'Lumped'
-output_variable_name: 'discharge'
-parameter_set_name: ''
-setup_variables:
-        - leakiness: 1
-custom_forcing_name: null
+# In addition, so that our framework knows which variables to test, the submission file should include the list of the names of each variable.
+variables:
+    - discharge: notdischarge

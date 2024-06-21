@@ -1,3 +1,5 @@
+# As specified in the eWaterCycle setup guide:
+# https://ewatercycle.readthedocs.io/en/latest/system_setup.html#conda-environment
 ---
 name: ewatercycle
 channels:

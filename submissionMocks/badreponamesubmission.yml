@@ -1,0 +1,5 @@
+repository: maselko13gitworkflowtest
+variables:
+    - discharge: notdischarge
+forcing_parameters:
+    - dataset: "ECDFG"

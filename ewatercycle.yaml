@@ -1,0 +1,30 @@
+apptainer_dir: apptainer-images
+container_engine: docker
+grdc_location: grdc-observations
+output_dir: .
+parameter_sets:
+  lisflood_fraser:
+    config: /mnt/c/Users/alexa/PycharmProjects/code/lisflood_fraser/settings_lat_lon-Run.xml
+    directory: /mnt/c/Users/alexa/PycharmProjects/code/lisflood_fraser
+    doi: N/A
+    downloader: {branch: master, org: ec-jrc, repo: lisflood-usecases, subfolder: LF_lat_lon_UseCase}
+    name: lisflood_fraser
+    supported_model_versions: ['20.10']
+    target_model: lisflood
+  pcrglobwb_rhinemeuse_30min:
+    config: /mnt/c/Users/alexa/PycharmProjects/code/pcrglobwb_rhinemeuse_30min/ini_and_batch_files/deltares_laptop/setup_natural_test.ini
+    directory: /mnt/c/Users/alexa/PycharmProjects/code/pcrglobwb_rhinemeuse_30min
+    doi: https://doi.org/10.5281/zenodo.1045339
+    downloader: {branch: master, org: UU-Hydro, repo: PCR-GLOBWB_input_example, subfolder: RhineMeuse30min}
+    name: pcrglobwb_rhinemeuse_30min
+    supported_model_versions: [setters]
+    target_model: pcrglobwb
+  wflow_rhine_sbm_nc:
+    config: /mnt/c/Users/alexa/PycharmProjects/code/wflow_rhine_sbm_nc/wflow_sbm_NC.ini
+    directory: /mnt/c/Users/alexa/PycharmProjects/code/wflow_rhine_sbm_nc
+    doi: N/A
+    downloader: {branch: master, org: openstreams, repo: wflow, subfolder: examples/wflow_rhine_sbm_nc}
+    name: wflow_rhine_sbm_nc
+    supported_model_versions: [2020.1.3, 2020.1.1, 2020.1.2]
+    target_model: wflow
+parameterset_dir: parameter-sets
