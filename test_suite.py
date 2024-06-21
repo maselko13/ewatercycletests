@@ -175,7 +175,6 @@ class TestSuite:
                 if (testbank_name == "ScenarioTests"):
                     if custom_forcing_name is None:
                         forcings = {}
-                        print("Loading custom forcing data not in parallel")
                         for test in values.tests:
                             enum = test.type
                             if ((enum == TestType.BOTH
@@ -209,8 +208,6 @@ class TestSuite:
             if test.enabled and test.test_result is not None:
                 if test.critical and not test.test_result.passed:
                     passed = False
-                if not test.test_result.passed:
-                    print("test failed: " + test.name)
 
         result[c.SUITE_PASSED_ATTRIBUTE] = passed
         return result

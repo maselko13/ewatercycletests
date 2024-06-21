@@ -99,7 +99,6 @@ class RunModelUtil:
                 end_time=end_time,
                 shape=shape.absolute(),
             )
-        print("Lumped Forcing generated: " + str(forcing))
         return forcing
 
     @staticmethod

@@ -26,37 +26,26 @@ def get_correct_forcing_lumped(name):
     For Lumped model get the correct custom forcing data for the correct test.
     """
     if "zero" in name:
-        print("zero is in "+name)
         return get_zeroes_lumped_scenario()
     elif 'permanent' in name:
-        print("permanent is in " + name)
         return get_non_zeroes_lumped_scenario()
     elif "decrease" in name:
-        print("decrease is in " + name)
         return get_decreasing_scenario()
     elif "increase" in name:
-        print("increase is in " + name)
         return get_increasing_scenario()
     elif "mid" in name:
-        print("mid is in " + name)
         return get_mid_spike_lumped_scenario()
     elif "start" in name:
-        print("start is in " + name)
         return get_start_spike_lumped_scenario()
     elif "end" in name:
-        print("end is in " + name)
         return get_end_spike_lumped_scenario()
     elif "first_half" in name:
-        print("first_half is in " + name)
         return get_first_half_precip_lumped_scenario()
     elif "second_half" in name:
-        print("second_half is in " + name)
         return get_second_half_precip_lumped_scenario()
     elif "pre_existing" in name:
-        print("pre_existing is in " + name)
         return get_zeroes_lumped_scenario()
     else:
-        print("WRONG TEST NAME FOR SCENARIO" + name)
         return
 
 
@@ -65,37 +54,26 @@ def get_correct_forcing_distributed(name):
     For Distributed model get the correct custom forcing data for the correct test.
     """
     if "zero" in name:
-        print("zero is in "+name)
         return get_zeroes_distributed_scenario()
     elif 'permanent' in name:
-        print("permanent is in " + name)
         return get_non_zeroes_distributed_scenario()
     elif "decrease" in name:
-        print("decrease is in " + name)
         return get_decreasing_scenario()
     elif "increase" in name:
-        print("increase is in " + name)
         return get_increasing_scenario()
     elif "mid" in name:
-        print("mid is in " + name)
         return get_mid_spike_distributed_scenario()
     elif "start" in name:
-        print("start is in " + name)
         return get_start_spike_distributed_scenario()
     elif "end" in name:
-        print("end is in " + name)
         return get_end_spike_distributed_scenario()
     elif "first_half" in name:
-        print("first_half is in " + name)
         return get_first_half_precip_distributed_scenario()
     elif "second_half" in name:
-        print("second_half is in " + name)
         return get_second_half_precip_distributed_scenario()
     elif "pre_existing" in name:
-        print("pre_existing is in " + name)
         return get_zeroes_distributed_scenario()
     else:
-        print("WRONG TEST NAME FOR SCENARIO" + name)
         return
 
 def get_zeroes_lumped_scenario():
