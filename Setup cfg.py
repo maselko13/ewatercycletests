@@ -15,5 +15,3 @@ ewatercycle.CFG.parameterset_dir = './parameter-sets'
 ewatercycle.CFG.save_to_file('./ewatercycle.yaml')
 
 a = ewatercycle.CFG.load_from_file('./ewatercycle.yaml')
-
-print(a)

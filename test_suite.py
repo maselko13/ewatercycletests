@@ -137,10 +137,7 @@ class TestSuite:
             model_instance.initialize(cfg_file)
             result[test.name] = test.start(model_instance, output_variable_name)
             # attempt to finalize model if it hasn't been already
-            try:
-                model_instance.finalize()
-            except:
-                print("")
+            model_instance.finalize()
         finally:
             # remove the created thread directory if it exists.
             shutil.rmtree(thread_dir)
