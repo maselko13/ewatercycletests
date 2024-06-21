@@ -1,3 +1,8 @@
+# This is a file that resolves the github integration part of the testing framework.
+# a few things are commented out to make testing easier, as github framework (mostly) require manual testing so time-saving is definitely very useful.
+# steps that are commented out will most probably NOT be so in the final version of the product (and the presentation).
+# The workflow resolves all requirements related to the PRsubsystem.
+# All work done on the workflows and proof of them functioning properly can be seen on the repository maselko13/ewatercycletests.
 name: Model Verification
 run-name: pullCheck
 on:
