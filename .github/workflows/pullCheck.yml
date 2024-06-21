@@ -75,6 +75,8 @@ jobs:
              conda run -n ewatercycle --no-capture-output python main.py
              echo EOF
              } >> "$GITHUB_ENV"
+        - name: test3
+          run: echo ${{ env.RESULT }}
         - name: upload-test-results
           uses: actions/upload-artifact@v4
           with:
