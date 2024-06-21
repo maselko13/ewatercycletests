@@ -39,7 +39,7 @@ jobs:
   #      - name: move-model-file
  #         run: mv -f second/Mocks.py .
         - name: clone-repo
-          run: pip install git+$https://github.com/eWaterCycle/leakybucket-bmi
+          run: pip install git+https://github.com/eWaterCycle/leakybucket-bmi
      #   - name: install-plugin
      #     run: pip install git+https://github.com/eWaterCycle/leakybucket-bmi
    #     - name: move-submission-file
