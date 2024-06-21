@@ -1,5 +1,5 @@
-name: basicmodel
-repository: maselko13/gitworkflowtest
+name: LeakyBucket
+repository: https://github.com/eWaterCycle/leakybucket-bmi
 name: basicmodel
 repository: maselko13/gitworkflowtest
 name: basicmodel
