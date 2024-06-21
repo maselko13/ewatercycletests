@@ -36,7 +36,7 @@ def includes_repository_link_test(data):
     return data[1].split()[1]
 
 # extract data
-with open('submissionMocks/models.txt', "r", encoding="utf8") as file:
+with open('models.txt', "r", encoding="utf8") as file:
     input = file.readlines()
 # test data
 contains_name_test(input)
