@@ -28,8 +28,10 @@ jobs:
           ARTIFACT_URL=$(gh api "/repos/$OWNER/$REPO/actions/artifacts" \
             --jq ".artifacts.[] |
             select(.workflow_run.id==${PREVIOUS_JOB_ID}) |
-            select(.expired==false)
+            select(.expired==false) |
+            .archive_download_url")
 
+          ARTIFACT_URL = $(echo $ARTIFACT_URL | cut -d api. -f2)
           echo "ARTIFACT URL: $ARTIFACT_URL"
           echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_ENV"
 
