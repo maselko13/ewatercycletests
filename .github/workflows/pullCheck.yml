@@ -31,13 +31,13 @@ jobs:
         - name: create-directory-for-model-repo
           run: mkdir second
         - name: model-list-tests
-          run: conda run -n ewatercycle2 --no-capture-output python models_modification_tests.py
+          run: conda run -n ewatercycle --no-capture-output python models_modification_tests.py
           # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
         - name: model-list-tests-as-output
           run: |
              {
              echo 'REPO<<EOF'
-             conda run -n ewatercycle2 --no-capture-output python models_modification_tests.py
+             conda run -n ewatercycle --no-capture-output python models_modification_tests.py
              echo EOF
              } >> "$GITHUB_ENV"
 
@@ -56,7 +56,7 @@ jobs:
    #     - name: move-submission-file
   #        run: mv -f second/submission.yml .
         - name: submission-file-tests
-          run: conda run -n ewatercycle2 --no-capture-output python plugin_submission_tests.py
+          run: conda run -n ewatercycle --no-capture-output python plugin_submission_tests.py
   Test-model:
     needs: Test-request-file
     # ensures only plugin addition pull requests are checked
@@ -72,12 +72,12 @@ jobs:
   #            repository: ${{steps.submission-file-tests.outputs.repository}}
  #             path: second
         - name: run-model-tests
-          run: conda run -n ewatercycle2 --no-capture-output python main.py
+          run: conda run -n ewatercycle --no-capture-output python main.py
         - name: run-model-tests-as-output
           run: |
              {
              echo 'RESULT<<EOF'
-             conda run -n ewatercycle2 --no-capture-output python main.py
+             conda run -n ewatercycle --no-capture-output python main.py
              echo EOF
              } >> "$GITHUB_ENV"
         - name: test3
