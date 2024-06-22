@@ -31,7 +31,7 @@ jobs:
             select(.expired==false) |
             .archive_download_url")
 
-          ARTIFACT_URL = $(echo $ARTIFACT_URL | awk -F api. '{print $2}')
+          ARTIFACT_URL=$(echo $ARTIFACT_URL | awk -F api. '{print $2}')
           echo "ARTIFACT URL: $ARTIFACT_URL"
           echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_ENV"
 
