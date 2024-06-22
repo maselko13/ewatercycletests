@@ -21,7 +21,7 @@ jobs:
           WORKFLOW_RUN_EVENT_OBJ: ${{ toJSON(github.event.workflow_run) }}
         run: |
 
-          gh auth login --with-token < ${{ secrets.TOKEN1 }}
+          gh auth login --with-token ${{ secrets.TOKEN1 }}
           PREVIOUS_JOB_ID=$(jq -r '.id' <<< "$WORKFLOW_RUN_EVENT_OBJ")
           echo "Previous Job ID: $PREVIOUS_JOB_ID"
           echo "PREVIOUS_JOB_ID=$PREVIOUS_JOB_ID" >> "$GITHUB_ENV"
