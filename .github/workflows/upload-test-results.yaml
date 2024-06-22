@@ -32,6 +32,7 @@ jobs:
             .archive_download_url")
 
           ARTIFACT_URL=$(echo $ARTIFACT_URL | awk -F actions/ '{print $2}')
+          ARTIFACT_URL=$(echo $ARTIFACT_URL | awk -F /zip '{print $1}')
           echo "ARTIFACT URL: $ARTIFACT_URL"
           echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_ENV"
 
@@ -53,7 +54,7 @@ jobs:
           HEAD_SHA: ${{ env.HEAD_SHA }}
         uses: peter-evans/create-or-update-comment@v4
         with:
-          token: ${{ secrets.TOKEN1 }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ env.PR_NUMBER }}
           body: |-
             ## Build Preview
