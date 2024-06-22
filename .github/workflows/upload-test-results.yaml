@@ -31,7 +31,7 @@ jobs:
             select(.expired==false) |
             .archive_download_url")
 
-          ARTIFACT_URL=$(echo $ARTIFACT_URL | awk -F api. '{print $2}')
+          ARTIFACT_URL=$(echo $ARTIFACT_URL | awk -F actions/ '{print $2}')
           echo "ARTIFACT URL: $ARTIFACT_URL"
           echo "ARTIFACT_URL=$ARTIFACT_URL" >> "$GITHUB_ENV"
 
@@ -49,7 +49,7 @@ jobs:
 
       - name: Update Comment
         env:
-          JOB_PATH: "${{ github.server_url }}/${{ github.repository }}/actions/\runs/${{ env.PREVIOUS_JOB_ID }}"
+          JOB_PATH: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ env.PREVIOUS_JOB_ID }}"
           HEAD_SHA: ${{ env.HEAD_SHA }}
         uses: peter-evans/create-or-update-comment@v4
         with:
@@ -70,6 +70,6 @@ jobs:
 
             | Logs      | ${{ env.JOB_PATH }}
 
-            | Jar Files | ${{ env. ARTIFACT_URL }}
+            | Jar Files | ${{ env.JOB_PATH }}/${{ env. ARTIFACT_URL }}
 
             [badge]: https://img.shields.io/badge/Build-Success!-3fb950?logo=github&style=for-the-badge
