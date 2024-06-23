@@ -23,6 +23,7 @@ jobs:
         - name: Get changed files
           id: changed-files
           uses: tj-actions/changed-files@v44
+         # checks whether the only file changed in the PR is the models.txt file, as per submission requirements
        # - name: check changed files
        #   env:
       #     ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
@@ -32,7 +33,7 @@ jobs:
           run: mkdir second
         - name: model-list-tests
           run: conda run -n ewatercycle --no-capture-output python models_modification_tests.py
-          # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to clone it in the next step.
+          # the submission file test outputs the path to the plugin file repository, which is stored as a a variable in order to import it in the next step.
         - name: model-list-tests-as-output
           run: |
              {
@@ -49,10 +50,9 @@ jobs:
  #             path: second
   #      - name: move-model-file
  #         run: mv -f second/Mocks.py .
-        - name: clone-repo
+         # imports the model
+        - name: install-plugin
           run: pip install git+${{env.REPO}}
-     #   - name: install-plugin
-     #     run: pip install git+https://github.com/eWaterCycle/leakybucket-bmi
    #     - name: move-submission-file
   #        run: mv -f second/submission.yml .
         - name: submission-file-tests
@@ -71,8 +71,6 @@ jobs:
   #            ref: main
   #            repository: ${{steps.submission-file-tests.outputs.repository}}
  #             path: second
-        - name: run-model-tests
-          run: conda run -n ewatercycle --no-capture-output python main.py
         - name: run-model-tests-as-output
           run: |
              {
@@ -80,8 +78,7 @@ jobs:
              conda run -n ewatercycle --no-capture-output python main.py
              echo EOF
              } >> "$GITHUB_ENV"
-        - name: test3
-          run: echo "${{ env.RESULT }}"
+          # uploads test results as an artifact
         - name: upload-test-results
           uses: actions/upload-artifact@v4
           with:
