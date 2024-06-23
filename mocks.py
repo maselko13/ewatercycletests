@@ -1,8 +1,10 @@
 """Module containing all the mocks that are used for validation testing.
 
-Most mocks in this module are used for validation of the BmiSpecTests and SpecTests bank.
+Most mocks in this module are used for validation
+ of the BmiSpecTests and SpecTests bank.
 Some of them are also used for integration tests.
-Each mock is supposed to closely mirror the methods that are expected of a hydrological model.
+Each mock is supposed to closely mirror the methods
+that are expected of a hydrological model.
 """
 import datetime as dt
 import numpy as np
@@ -15,7 +17,8 @@ class BasicModelMock:
 
     This mock contains all necessary methods to make the specification-based tests pass.
     Some of the methods simply return, some have a tad more elaborate functionality.
-    This mock also contains a lot of placeholder variables, also to make the specification-based tests pass.
+    This mock also contains a lot of placeholder variables,
+     also to make the specification-based tests pass.
     Many models in this module are children of this model.
     """
 
@@ -38,7 +41,8 @@ class BasicModelMock:
     def __init__(self) -> None:
         """Create a new basic model mock.
 
-        When created, the basic model mock sets its vital time and time step variables,as well as the 'finalized' boolean.
+        When created, the basic model mock sets its vital time and
+        time step variables,as well as the 'finalized' boolean.
         """
         self.time = 0.0
         self.start_time = 0.0
@@ -49,7 +53,8 @@ class BasicModelMock:
     def initialize(self, *args, **kwargs):
         """Initialize the basic model mock.
 
-        When initialized, the basic model mock sets its vital time and time step variables,as well as the 'finalized' boolean.
+        When initialized, the basic model mock sets its vital time and
+        time step variables,as well as the 'finalized' boolean.
         """
         # hardcoded for now
     #    if cfg != "cfg.json":
@@ -71,7 +76,8 @@ class BasicModelMock:
     def finalize(self):
         """Mock the finalize method.
 
-        This method simply sets the 'finalized' attribute to true, to ensure that the update() method cannot be called.
+        This method simply sets the 'finalized' attribute to true,
+        to ensure that the update() method cannot be called.
         """
         self.finalized = True
 
@@ -120,7 +126,7 @@ class BasicModelMock:
 
         This mock only has 2 grids, hence this return value.
         """
-        return [number,number]
+        return np.array([number,number])
 
     def get_grid_size(self,number):
         """Mock the get_grid_size method."""
@@ -277,7 +283,8 @@ class FaultyTimeMock(BasicModelMock):
     def __init__(self) -> None:
         """Create a new FaultyTimeMock.
 
-        When created, the FaultyTim mock sets its end time lower than its start time and sets its time step to negative as both of these make related tests fail.
+        When created, the FaultyTim mock sets its end time lower than its start time
+        and sets its time step to negative as both of these make related tests fail.
         """
         self.time = 13.0
         self.start_time = 15.0
@@ -293,7 +300,8 @@ class FaultyTimeMock(BasicModelMock):
     def update(self):
         """Mock the update method.
 
-        When this mock is updated, it decreases its time by its time step instead of increasing it, failing the respective test.
+        When this mock is updated, it decreases its time by its
+        time step instead of increasing it, failing the respective test.
         """
         self.time == self.time - self.time_step
 
@@ -302,7 +310,8 @@ class FaultyTimeMock(BasicModelMock):
         return "years"
 
 class FaultyTimeMock2(FaultyTimeMock):
-    """Simple class created from FaultyTimeMock for the sake of additional branch coverage of one of the validation tests."""
+    """Simple class created from FaultyTimeMock for the sake
+    of additional branch coverage of one of the validation tests."""
 
     def get_time_units(self):
         """Mock the get_time_units method, returning an incorrect format."""
