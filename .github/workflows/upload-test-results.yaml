@@ -12,7 +12,9 @@ jobs:
   comment-on-pr:
     runs-on: self-hosted
     steps:
-
+       # this job runs an elaborate script that gets the previous job (code above ensures that it is the model verification workflow), takes its artifacts (test results) and comments them under the related pull request.
+       # the test results can then be downloaded from the comment as a .zip file.
+       # In the future (github plans to implement it soon), this code could be improved by making the uploaded link open the human-readable format of the test results in a new tab as well as download them as a .zip file.
       - name: Get Artifact URL & PR Info
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN1 }}
@@ -57,20 +59,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ env.PR_NUMBER }}
           body: |-
-            ## Build Preview
+            Test run complete! you can download the test results below ⬇️
+             ${{ env.JOB_PATH }}/${{ env. ARTIFACT_URL }}
 
-            [![badge]]($JOB_PATH)
-
-            You can find files attached to the below linked Workflow Run URL (Logs).
-
-            Please note that files only stay for around 90 days!
-
-            | Name      | Link
-            --------------------------------------------------------------------
-            | Commit    | ${{ env.HEAD_SHA }}
-
-            | Logs      | ${{ env.JOB_PATH }}
-
-            | Jar Files | ${{ env.JOB_PATH }}/${{ env. ARTIFACT_URL }}
-
-            [badge]: https://img.shields.io/badge/Build-Success!-3fb950?logo=github&style=for-the-badge
