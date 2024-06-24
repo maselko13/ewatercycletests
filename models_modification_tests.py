@@ -30,9 +30,6 @@ def includes_repository_link_test(data):
             from exception
     if not (data[1].startswith("repository:") and len(data[1]) >= 16):
         raise exceptions.NotFoundException("No repository name was provided")
-    if not data[1].split()[1].startswith("https://github.com/"):
-        raise exceptions.WrongFormatException("The repository"
-                            " inclusion in the models.txt has the wrong format!")
     return data[1].split()[1]
 
 # extract data
