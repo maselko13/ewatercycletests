@@ -43,7 +43,7 @@ jobs:
              } >> "$GITHUB_ENV"
          # imports the model
         - name: install-plugin
-          run: pip install git+${{env.REPO}}
+          run: pip install git+https://github.com/${{env.REPO}}
         - name: clone-repo
           uses: actions/checkout@v4
           with:
