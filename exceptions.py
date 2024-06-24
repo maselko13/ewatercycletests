@@ -2,7 +2,11 @@
 A module with extra exceptions that can be raised
 """
 class VarDoesntExistException(Exception):
-    """
-    an exception that is raised when a variable is not found
-    """
-    print("the variable you're trying to get doesn't exist!")
+    def __init__(self):
+        return
+class NotFoundException(Exception):
+        def __init__(self, message):
+            super().__init__(message)
+class WrongFormatException(Exception):
+        def __init__(self, message):
+            super().__init__(message)
