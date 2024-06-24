@@ -5,4 +5,5 @@ class VarDoesntExistException(Exception):
     """
     an exception that is raised when a variable is not found
     """
-    print("the variable you're trying to get doesn't exist!")
+    def __init__(self):
+        return
