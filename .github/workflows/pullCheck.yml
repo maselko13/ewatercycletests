@@ -24,11 +24,11 @@ jobs:
           id: changed-files
           uses: tj-actions/changed-files@v44
          # checks whether the only file changed in the PR is the models.txt file, as per submission requirements
-       # - name: check changed files
-       #   env:
-      #     ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-     #     run: |
-    #       [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || exit 1
+        - name: check changed files
+          env:
+           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          run: |
+           [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || exit 1
         - name: create-directory-for-model-repo
           run: mkdir second
         - name: model-list-tests
@@ -41,20 +41,17 @@ jobs:
              conda run -n ewatercycle --no-capture-output python models_modification_tests.py
              echo EOF
              } >> "$GITHUB_ENV"
-
-      #  - name: clone-repo
-     #     uses: actions/checkout@v4
-    #      with:
-   #           repository: ${{env.REPO}}
-  #            ref: main
- #             path: second
-  #      - name: move-model-file
- #         run: mv -f second/Mocks.py .
          # imports the model
         - name: install-plugin
           run: pip install git+${{env.REPO}}
-   #     - name: move-submission-file
-  #        run: mv -f second/submission.yml .
+        - name: clone-repo
+          uses: actions/checkout@v4
+          with:
+              repository: ${{env.REPO}}
+              ref: main
+              path: second
+        - name: move-submission-file
+          run: mv -f second/submission.yml .
         - name: submission-file-tests
           run: conda run -n ewatercycle --no-capture-output python plugin_submission_tests.py
   Test-model:
@@ -65,12 +62,12 @@ jobs:
     permissions:
       contents: write
     steps:  
-    #    - name: clone-repo
-    #      uses: actions/checkout@v4
-   #       with:
-  #            ref: main
-  #            repository: ${{steps.submission-file-tests.outputs.repository}}
- #             path: second
+        - name: clone-repo
+          uses: actions/checkout@v4
+          with:
+              ref: main
+              repository: ${{steps.submission-file-tests.outputs.repository}}
+              path: second
         - name: run-model-tests-as-output
           run: |
              {
