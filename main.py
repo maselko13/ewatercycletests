@@ -73,7 +73,7 @@ def main():
     # To run Wflow To Debug, Uncomment The Line Below And Comment The Normal RunAll
     # result: dict = test_suite.run_all(**(RunModelUtil.get_wflow_run_all()))
 
-    data = yaml.safe_load(open('exampleLeakyBucketSubmissionFile.yml'))
+    data = yaml.safe_load(open('submission.yml'))
     all_parameters = ParseSubmission.get_parameters_from_submission(data)
     result: dict = test_suite.run_all(**all_parameters)
 
