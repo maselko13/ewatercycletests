@@ -1,5 +1,5 @@
 name: LeakyBucket
-repository: https://github.com/ALEXANDERVDAS/ewatercycle-leakybuckettest
+repository: ALEXANDERVDAS/ewatercycle-wflowtest
 name: basicmodel
 repository: maselko13/gitworkflowtest
 name: basicmodel
