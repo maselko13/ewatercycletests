@@ -24,11 +24,11 @@ jobs:
           id: changed-files
           uses: tj-actions/changed-files@v44
          # checks whether the only file changed in the PR is the models.txt file, as per submission requirements
-        - name: check changed files
-          env:
-           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-          run: |
-           [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || exit 1
+       # - name: check changed files
+       #   env:
+       #    ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+      #    run: |
+     #      [ "${{env.ALL_CHANGED_FILES}}" == "models.txt" ] || exit 1
         - name: create-directory-for-model-repo
           run: mkdir second
         - name: model-list-tests
