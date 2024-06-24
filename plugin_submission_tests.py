@@ -109,7 +109,7 @@ def contains_custom_forcing_variables_test(data):
             from exception
 
 # extract file
-with open('exampleLeakyBucketSubmissionFile.yml') as file:
+with open('submission.yml') as file:
     file = yaml.safe_load(file)
 # test file
 contains_model_name_test(file)
